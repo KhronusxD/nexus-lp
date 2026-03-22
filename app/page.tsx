@@ -189,14 +189,12 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex items-center gap-3 animate-fade-in-up delay-300">
-              <div className="neon-border-ring neon-border-active rounded-lg">
-                <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
-                  Começar grátis
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </div>
+              <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
+                Começar grátis
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
               <a
                 href="#produto"
                 className="text-sm font-medium px-6 h-11 rounded-lg inline-flex items-center gap-2 transition-colors duration-200 active:scale-95"
@@ -289,7 +287,7 @@ export default function Home() {
                   { app: "Notion",           logo: "https://cdn.simpleicons.org/notion/ffffff",          desc: "metas e notas",    warning: "nunca abre" },
                   { app: "Todoist",          logo: "https://cdn.simpleicons.org/todoist/E44332",         desc: "tarefas do dia",   warning: "sem contexto" },
                   { app: "Google Calendar",  logo: "https://cdn.simpleicons.org/googlecalendar/4285F4",  desc: "agenda",           warning: "cega aos projetos" },
-                  { app: "Habitica",         logo: "https://logo.clearbit.com/habitica.com",            desc: "hábitos",          warning: "isolado" },
+                  { app: "Habitica",         logo: "https://cdn.simpleicons.org/habitica/9a59ff",        desc: "hábitos",          warning: "isolado" },
                   { app: "Strava",           logo: "https://cdn.simpleicons.org/strava/FC4C02",          desc: "saúde",            warning: "não conversa" },
                   { app: "WhatsApp",         logo: "https://cdn.simpleicons.org/whatsapp/25D366",        desc: "planos e metas",   warning: "caos total" },
                 ].map((item) => (
@@ -532,7 +530,7 @@ export default function Home() {
         </section>
 
         {/* ==================== TESTIMONIALS ==================== */}
-        <section className="py-16 md:py-24 overflow-hidden">
+        <section id="depoimentos" className="py-16 md:py-24 overflow-hidden">
           <RevealOnScroll>
             <h2 className="mx-auto max-w-xl text-center text-2xl md:text-4xl font-semibold tracking-tight text-[var(--foreground)] px-4">
               Quem usa, não volta atrás
@@ -653,7 +651,7 @@ export default function Home() {
         </section>
 
         {/* ==================== FAQ ==================== */}
-        <section className="mx-auto max-w-2xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
+        <section id="faq" className="mx-auto max-w-2xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
           <RevealOnScroll>
             <h2 className="text-center text-2xl md:text-4xl font-semibold tracking-tight text-[var(--foreground)]">
               Perguntas frequentes
@@ -682,14 +680,12 @@ export default function Home() {
                     Comece grátis. Sem cartão de crédito. Em menos de 5 minutos você tem sua estrutura de vida montada — e o Jarbas pronto para trabalhar.
                   </p>
                   <div className="mt-8 flex items-center gap-3">
-                    <div className="neon-border-ring neon-border-active rounded-lg">
-                      <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
-                        Começar grátis
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </a>
-                    </div>
+                    <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
+                      Começar grátis
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
                     <a href="mailto:contato@nexus.app" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors flex items-center gap-1">
                       Falar com a equipe
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

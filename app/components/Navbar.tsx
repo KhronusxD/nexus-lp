@@ -54,41 +54,12 @@ export default function Navbar() {
             </a>
           ))}
 
-          <div className="relative">
-            <button
-              className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200 flex items-center gap-1"
-              onMouseEnter={() => setResourcesOpen(true)}
-              onMouseLeave={() => setResourcesOpen(false)}
-            >
-              Recursos
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div
-              className={`absolute top-full left-0 mt-2 w-60 glass-card rounded-xl shadow-2xl transition-all duration-200 p-1.5 ${
-                resourcesOpen ? "opacity-100 visible" : "opacity-0 invisible"
-              }`}
-              onMouseEnter={() => setResourcesOpen(true)}
-              onMouseLeave={() => setResourcesOpen(false)}
-            >
-              {[
-                { label: "Blog", desc: "Artigos sobre produtividade e IA" },
-                { label: "Documentação", desc: "Guias e referência da API" },
-                { label: "Central de Ajuda", desc: "Suporte e perguntas frequentes" },
-                { label: "Changelog", desc: "Veja as novidades" },
-                { label: "Tutoriais", desc: "Aprenda com vídeos práticos" },
-              ].map((item) => (
-                <a key={item.label} href="#" className="block px-3 py-2 rounded-lg hover:bg-[var(--surface-elevated)] transition-colors duration-200">
-                  <div className="text-sm text-[var(--foreground)]">{item.label}</div>
-                  <div className="text-xs text-[var(--foreground-subtle)]">{item.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
+          <a href="#depoimentos" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
+            Depoimentos
+          </a>
 
-          <a href="#" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
-            Contato
+          <a href="#faq" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
+            FAQ
           </a>
         </div>
 
@@ -134,11 +105,11 @@ export default function Navbar() {
           <a href="#precos" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
             Preços
           </a>
-          <a href="#" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
-            Recursos
+          <a href="#depoimentos" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
+            Depoimentos
           </a>
-          <a href="#" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
-            Contato
+          <a href="#faq" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
+            FAQ
           </a>
           <hr className="border-[var(--border)]" />
           <a href="https://nexus-lilac-iota.vercel.app/login" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
