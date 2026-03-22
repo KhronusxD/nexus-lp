@@ -1,0 +1,154 @@
+"use client";
+
+import { useState, useRef } from "react";
+
+export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [spotlight, setSpotlight] = useState({ x: -999, y: -999, visible: false });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = headerRef.current!.getBoundingClientRect();
+    setSpotlight({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true });
+  };
+
+  return (
+    <nav className="fixed inset-x-0 top-4 z-50 mx-auto w-full max-w-6xl px-4 md:px-6">
+      <div
+        ref={headerRef}
+        className="flex h-14 items-center justify-between px-4 md:px-6 glass-topbar rounded-2xl overflow-hidden"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setSpotlight((s) => ({ ...s, visible: false }))}
+        style={{ position: "relative" }}
+      >
+        {/* Mouse spotlight */}
+        <div
+          className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+          style={{
+            opacity: spotlight.visible ? 1 : 0,
+            background: `radial-gradient(280px circle at ${spotlight.x}px ${spotlight.y}px,
+              rgba(0,206,209,0.07) 0%,
+              rgba(50,205,50,0.04) 40%,
+              transparent 70%)`,
+          }}
+        />
+        {/* Logo */}
+        <a href="#" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-horizontal.png" alt="Nexus" className="h-8 w-auto" />
+        </a>
+
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex items-center gap-6">
+          {[
+            { label: "Produto", href: "#produto" },
+            { label: "Preços", href: "#precos" },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200"
+            >
+              {item.label}
+            </a>
+          ))}
+
+          <div className="relative">
+            <button
+              className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200 flex items-center gap-1"
+              onMouseEnter={() => setResourcesOpen(true)}
+              onMouseLeave={() => setResourcesOpen(false)}
+            >
+              Recursos
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={`absolute top-full left-0 mt-2 w-60 glass-card rounded-xl shadow-2xl transition-all duration-200 p-1.5 ${
+                resourcesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
+              onMouseEnter={() => setResourcesOpen(true)}
+              onMouseLeave={() => setResourcesOpen(false)}
+            >
+              {[
+                { label: "Blog", desc: "Artigos sobre produtividade e IA" },
+                { label: "Documentação", desc: "Guias e referência da API" },
+                { label: "Central de Ajuda", desc: "Suporte e perguntas frequentes" },
+                { label: "Changelog", desc: "Veja as novidades" },
+                { label: "Tutoriais", desc: "Aprenda com vídeos práticos" },
+              ].map((item) => (
+                <a key={item.label} href="#" className="block px-3 py-2 rounded-lg hover:bg-[var(--surface-elevated)] transition-colors duration-200">
+                  <div className="text-sm text-[var(--foreground)]">{item.label}</div>
+                  <div className="text-xs text-[var(--foreground-subtle)]">{item.desc}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <a href="#" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
+            Contato
+          </a>
+        </div>
+
+        {/* Right Side */}
+        <div className="hidden md:flex items-center gap-3">
+          <a href="#" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
+            Entrar
+          </a>
+          <button className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg inline-flex items-center gap-2 active:scale-95">
+            Começar grátis
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Abrir menu"
+        >
+          {mobileOpen ? (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden fixed inset-0 top-14 z-40 transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ background: "rgba(10,10,12,0.97)", backdropFilter: "blur(20px)" }}
+      >
+        <div className="flex flex-col p-6 gap-4">
+          <a href="#produto" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
+            Produto
+          </a>
+          <a href="#precos" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
+            Preços
+          </a>
+          <a href="#" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
+            Recursos
+          </a>
+          <a href="#" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
+            Contato
+          </a>
+          <hr className="border-[var(--border)]" />
+          <a href="#" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
+            Entrar
+          </a>
+          <button className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg w-fit inline-flex items-center">
+            Começar grátis
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
