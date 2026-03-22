@@ -3,6 +3,8 @@ import FAQ from "./components/FAQ";
 import RevealOnScroll from "./components/RevealOnScroll";
 import GlowCard from "./components/GlowCard";
 
+const APP_URL = "https://nexus-lilac-iota.vercel.app";
+
 const logos = [
   { src: "https://assets.aceternity.com/logos/openai.png", alt: "OpenAI" },
   { src: "https://assets.aceternity.com/logos/hello-patient.png", alt: "Hello Patient" },
@@ -71,6 +73,7 @@ const pricingPlans = [
       "Acesso web e mobile",
     ],
     cta: "Criar conta grátis",
+    href: `${APP_URL}/login`,
     popular: false,
   },
   {
@@ -87,6 +90,7 @@ const pricingPlans = [
       "Suporte prioritário",
     ],
     cta: "Começar agora",
+    href: `${APP_URL}/login`,
     popular: false,
   },
   {
@@ -104,6 +108,7 @@ const pricingPlans = [
       "Insights preditivos de rotina",
     ],
     cta: "Desbloquear o Jarbas",
+    href: `${APP_URL}/login`,
     popular: true,
   },
 ];
@@ -153,7 +158,7 @@ export default function Home() {
             {/* Badge */}
             <div className="animate-fade-in-up">
               <a
-                href="#"
+                href="#produto"
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-200 active:scale-[0.98]"
                 style={{
                   background: "rgba(0,206,209,0.1)",
@@ -185,19 +190,20 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="mt-8 flex items-center gap-3 animate-fade-in-up delay-300">
               <div className="neon-border-ring neon-border-active rounded-lg">
-                <button className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
+                <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
                   Começar grátis
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </button>
+                </a>
               </div>
-              <button
+              <a
+                href="#produto"
                 className="text-sm font-medium px-6 h-11 rounded-lg inline-flex items-center gap-2 transition-colors duration-200 active:scale-95"
                 style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }}
               >
                 Ver como funciona
-              </button>
+              </a>
             </div>
 
             {/* Stats */}
@@ -627,8 +633,9 @@ export default function Home() {
                       })}
                     </ul>
 
-                    <button
-                      className={`mt-8 w-full h-10 rounded-lg text-sm font-semibold transition-all duration-200 active:scale-95 ${
+                    <a
+                      href={plan.href}
+                      className={`mt-8 w-full h-10 rounded-lg text-sm font-semibold transition-all duration-200 active:scale-95 inline-flex items-center justify-center ${
                         plan.popular
                           ? "btn-primary-gradient text-white"
                           : "text-[var(--foreground)]"
@@ -636,7 +643,7 @@ export default function Home() {
                       style={!plan.popular ? { background: "var(--surface-elevated)", border: "1px solid var(--border)" } : {}}
                     >
                       {plan.cta}
-                    </button>
+                    </a>
                   </GlowCard>
                 </div>
               </RevealOnScroll>
@@ -676,19 +683,19 @@ export default function Home() {
                   </p>
                   <div className="mt-8 flex items-center gap-3">
                     <div className="neon-border-ring neon-border-active rounded-lg">
-                      <button className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
+                      <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
                         Começar grátis
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                      </button>
+                      </a>
                     </div>
-                    <button className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors flex items-center gap-1">
+                    <a href="mailto:contato@nexus.app" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors flex items-center gap-1">
                       Falar com a equipe
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </button>
+                    </a>
                   </div>
                 </RevealOnScroll>
               </div>
@@ -730,9 +737,17 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            {["Produto", "Preços", "Blog", "Documentação", "Changelog", "Privacidade", "Termos"].map((link) => (
-              <a key={link} href="#" className="footer-link text-xs">
-                {link}
+            {[
+              { label: "Produto",       href: "#produto" },
+              { label: "Preços",        href: "#precos" },
+              { label: "Blog",          href: "#" },
+              { label: "Documentação",  href: "#" },
+              { label: "Changelog",     href: "#" },
+              { label: "Privacidade",   href: "#" },
+              { label: "Termos",        href: "#" },
+            ].map((link) => (
+              <a key={link.label} href={link.href} className="footer-link text-xs">
+                {link.label}
               </a>
             ))}
           </div>

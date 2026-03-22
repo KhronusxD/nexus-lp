@@ -94,12 +94,12 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="hidden md:flex items-center gap-3">
-          <a href="#" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
+          <a href="https://nexus-lilac-iota.vercel.app/login" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
             Entrar
           </a>
-          <button className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg inline-flex items-center gap-2 active:scale-95">
+          <a href="https://nexus-lilac-iota.vercel.app/login" className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg inline-flex items-center gap-2 active:scale-95">
             Começar grátis
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -141,12 +141,12 @@ export default function Navbar() {
             Contato
           </a>
           <hr className="border-[var(--border)]" />
-          <a href="#" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
+          <a href="https://nexus-lilac-iota.vercel.app/login" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
             Entrar
           </a>
-          <button className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg w-fit inline-flex items-center">
+          <a href="https://nexus-lilac-iota.vercel.app/login" className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg w-fit inline-flex items-center">
             Começar grátis
-          </button>
+          </a>
         </div>
       </div>
     </nav>
