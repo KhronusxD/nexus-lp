@@ -90,7 +90,7 @@ const pricingPlans = [
       "Suporte prioritário",
     ],
     cta: "Começar agora",
-    href: `${APP_URL}/login`,
+    href: "https://buy.stripe.com/test_cNibJ2fayaslcj55MO1oI00",
     popular: false,
   },
   {
@@ -108,7 +108,7 @@ const pricingPlans = [
       "Insights preditivos de rotina",
     ],
     cta: "Desbloquear o Jarbas",
-    href: `${APP_URL}/login`,
+    href: "https://buy.stripe.com/test_5kQ8wQ9Qe7g93Mzb781oI01",
     popular: true,
   },
 ];
