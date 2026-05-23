@@ -2,62 +2,8 @@ import Navbar from "./components/Navbar";
 import FAQ from "./components/FAQ";
 import RevealOnScroll from "./components/RevealOnScroll";
 import GlowCard from "./components/GlowCard";
+import PricingSection from "./components/PricingSection";
 import { APP_URL } from "./config";
-
-const pricingPlans = [
-  {
-    name: "Grátis",
-    price: "R$0",
-    period: "",
-    description: "Para experimentar a estrutura do Nexus.",
-    features: [
-      "Até 3 Pilares ativos",
-      "Até 3 Skills e 3 Projetos",
-      "10 tarefas por projeto",
-      "3 hábitos rastreados",
-      "Agenda integrada",
-      "Histórico de 7 dias",
-    ],
-    cta: "Criar conta grátis",
-    href: `${APP_URL}/cadastro`,
-    popular: false,
-  },
-  {
-    name: "Sistema",
-    price: "R$29,90",
-    period: "/ mês",
-    description: "Sistema completo + 30 dias de Jarbas grátis.",
-    features: [
-      "Pilares, Skills, Projetos e Hábitos ilimitados",
-      "Histórico completo",
-      "Notas, mind maps e modo Deep Work",
-      "Relatórios e exportação (LGPD)",
-      "Google Calendar sync",
-      "30 dias de Jarbas IA grátis (depois R$69,90 ou volta ao Sistema)",
-    ],
-    cta: "Começar 30 dias grátis",
-    href: `${APP_URL}/cadastro?plano=sistema`,
-    popular: false,
-  },
-  {
-    name: "Nexus AI",
-    price: "R$69,90",
-    period: "/ mês",
-    description: "O sistema completo + Jarbas permanente + WhatsApp.",
-    features: [
-      "Tudo do plano Sistema",
-      "Jarbas — agente de IA permanente",
-      "Nexus no seu WhatsApp (envio e resumo diário)",
-      "Transcrição de áudio e análise de imagens",
-      "Revisão semanal gerada por IA",
-      "Comandos em linguagem natural",
-      "14 dias grátis — sem cobrança no início",
-    ],
-    cta: "Desbloquear o Jarbas",
-    href: `${APP_URL}/cadastro?plano=nexus-ai`,
-    popular: true,
-  },
-];
 
 const ctaImages = [
   "/prints/01-Calendario-Mensal.png",
@@ -646,77 +592,7 @@ export default function Home() {
         </section>
 
         {/* ==================== PRICING ==================== */}
-        <section id="precos" className="mx-auto max-w-7xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
-          <RevealOnScroll>
-            <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[var(--foreground)]">
-              Substitui várias assinaturas.<br />Custa menos que uma.
-            </h2>
-            <p className="text-center text-[var(--foreground-subtle)] mt-3 text-sm">
-              Comece grátis. Evolua quando quiser.
-            </p>
-          </RevealOnScroll>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
-            {pricingPlans.map((plan, i) => {
-              const planGlow = (["cyan", "green", "cyan"] as const)[i];
-              return (
-              <RevealOnScroll key={plan.name} revealClass={`reveal delay-${(i + 1) * 100}`}>
-                <div className={`neon-border-ring rounded-2xl h-full ${plan.popular ? "neon-border-active" : ""}`}>
-                  <GlowCard
-                    glow={planGlow}
-                    className={`rounded-2xl p-6 h-full flex flex-col ${plan.popular ? "" : "glass-card"}`}
-                    style={plan.popular ? {
-                      background: "linear-gradient(145deg, rgba(0,206,209,0.06) 0%, rgba(50,205,50,0.04) 100%)",
-                      border: "1px solid rgba(0,206,209,0.2)",
-                    } : {}}
-                  >
-                    {plan.popular && (
-                      <div className="mb-4">
-                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full logo-gradient-text" style={{ background: "rgba(0,206,209,0.08)", border: "1px solid rgba(0,206,209,0.25)" }}>
-                          Mais escolhido
-                        </span>
-                      </div>
-                    )}
-                    <div className="text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-widest">{plan.name}</div>
-                    <div className="mt-2 flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-[var(--foreground)]">{plan.price}</span>
-                      {plan.period && <span className="text-sm text-[var(--foreground-subtle)]">{plan.period}</span>}
-                    </div>
-                    <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">{plan.description}</p>
-
-                    <ul className="mt-6 space-y-2.5 flex-1">
-                      {plan.features.map((feature, fi) => {
-                        const checkColors = [LOGO.cyan.text, LOGO.green.text, LOGO.orange.text];
-                        const checkColor = plan.popular ? checkColors[fi % checkColors.length] : LOGO.cyan.text;
-                        return (
-                          <li key={feature} className="flex items-start gap-2.5 text-sm text-[var(--foreground-muted)]">
-                            <svg className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: checkColor }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            {feature}
-                          </li>
-                        );
-                      })}
-                    </ul>
-
-                    <a
-                      href={plan.href}
-                      className={`mt-8 w-full h-10 rounded-lg text-sm font-semibold transition-all duration-200 active:scale-95 inline-flex items-center justify-center ${
-                        plan.popular
-                          ? "btn-primary-gradient text-white"
-                          : "text-[var(--foreground)]"
-                      }`}
-                      style={!plan.popular ? { background: "var(--surface-elevated)", border: "1px solid var(--border)" } : {}}
-                    >
-                      {plan.cta}
-                    </a>
-                  </GlowCard>
-                </div>
-              </RevealOnScroll>
-              );
-            })}
-          </div>
-        </section>
+        <PricingSection />
 
         {/* ==================== FAQ ==================== */}
         <section id="faq" className="mx-auto max-w-2xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
