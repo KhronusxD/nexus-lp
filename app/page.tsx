@@ -99,8 +99,8 @@ export default function Home() {
             {/* Trust indicators — honestos pra early access */}
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 animate-fade-in-up delay-400">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-sm font-semibold" style={{ color: LOGO.green.text }}>30 dias</span>
-                <span className="text-xs text-[var(--foreground-subtle)]">de Jarbas grátis no plano Sistema</span>
+                <span className="text-sm font-semibold" style={{ color: LOGO.green.text }}>7 dias</span>
+                <span className="text-xs text-[var(--foreground-subtle)]">grátis em qualquer plano pago</span>
               </div>
               <div className="flex items-baseline gap-1.5">
                 <span className="text-sm font-semibold" style={{ color: LOGO.cyan.text }}>Sem cartão</span>

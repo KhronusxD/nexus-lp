@@ -60,7 +60,7 @@ export default function TermsPage() {
             </p>
             <ul>
               <li><strong>Plano Grátis:</strong> acesso a funcionalidades básicas com limites definidos;</li>
-              <li><strong>Plano Sistema:</strong> acesso completo a recursos de produtividade, sem limites de criação, com trial de 30 dias do Jarbas;</li>
+              <li><strong>Plano Sistema:</strong> acesso completo a recursos de produtividade, sem limites de criação, com trial de 7 dias do Jarbas;</li>
               <li><strong>Plano Nexus AI:</strong> acesso a todas as funcionalidades, incluindo o Jarbas com acesso permanente e recursos avançados de IA.</li>
             </ul>
             <p>
@@ -104,7 +104,7 @@ export default function TermsPage() {
             </Subsection>
             <Subsection title="5.2 Trial">
               <p>
-                O Plano Sistema inclui um período trial gratuito de 30 dias para o assistente Jarbas. Após o término do trial, o acesso ao Jarbas é suspenso automaticamente, sem custos adicionais.
+                Todos os planos pagos incluem um período trial gratuito de 7 dias. No Plano Sistema, o trial concede acesso completo ao assistente Jarbas — após o término, o Jarbas é suspenso automaticamente e o restante do plano segue ativo. No Plano Nexus AI, o trial concede acesso completo a todas as funcionalidades sem cobrança no primeiro período. Em ambos os casos, é possível cancelar a qualquer momento durante o trial sem ônus.
               </p>
             </Subsection>
             <Subsection title="5.3 Cancelamento">

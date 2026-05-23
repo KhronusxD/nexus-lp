@@ -60,7 +60,7 @@ const SISTEMA_FEATURES = [
   "Notas, mind maps e modo Deep Work",
   "Relatórios e exportação (LGPD)",
   "Google Calendar sync",
-  "30 dias de Jarbas IA grátis (depois R$69,90 ou volta ao Sistema)",
+  "7 dias de Jarbas IA grátis (depois R$69,90 ou volta ao Sistema)",
 ];
 
 const AI_FEATURES = [
@@ -70,7 +70,7 @@ const AI_FEATURES = [
   "Transcrição de áudio e análise de imagens",
   "Revisão semanal gerada por IA",
   "Comandos em linguagem natural",
-  "14 dias grátis — sem cobrança no início",
+  "7 dias grátis — sem cobrança no início",
 ];
 
 export default function PricingSection() {
@@ -130,7 +130,7 @@ export default function PricingSection() {
                 <span className="text-4xl font-bold text-[var(--foreground)]">R$29,90</span>
                 <span className="text-sm text-[var(--foreground-subtle)]">/ mês</span>
               </div>
-              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">Sistema completo + 30 dias de Jarbas grátis.</p>
+              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">Sistema completo + 7 dias de Jarbas grátis.</p>
 
               <ul className="mt-6 space-y-2.5 flex-1">
                 {SISTEMA_FEATURES.map((f) => (
@@ -148,7 +148,7 @@ export default function PricingSection() {
                 className="mt-8 w-full h-10 rounded-lg text-sm font-semibold inline-flex items-center justify-center text-[var(--foreground)] active:scale-95 transition-transform"
                 style={{ background: "var(--surface-elevated)", border: "1px solid var(--border)" }}
               >
-                Começar 30 dias grátis
+                Começar 7 dias grátis
               </a>
             </GlowCard>
           </div>

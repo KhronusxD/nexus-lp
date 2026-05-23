@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "Como funciona o trial? Vocês cobram o cartão antes?",
     answer:
-      "No plano Sistema, você tem 30 dias do Jarbas grátis após assinar. No plano Nexus AI, são 14 dias grátis. Em ambos, exigimos cartão no início para você não perder o acesso quando o trial acabar — mas a primeira cobrança só acontece no fim do período. Se cancelar antes, não é cobrado nada. No plano Grátis, não pedimos cartão de jeito nenhum.",
+      "Todos os planos pagos têm 7 dias grátis. No Sistema, esses 7 dias incluem acesso completo ao Jarbas (depois ele desliga, mas o resto do app continua funcionando no R$29,90/mês). No Nexus AI, são 7 dias sem cobrança com acesso completo a Jarbas + WhatsApp. Exigimos cartão no início pra você não perder o acesso quando o trial acabar — mas a primeira cobrança só acontece no 8º dia. Se cancelar antes, não é cobrado nada. No plano Grátis, não pedimos cartão.",
   },
   {
     question: "O WhatsApp é obrigatório? Como conecto?",
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Qual a diferença entre Sistema e Nexus AI?",
     answer:
-      "O Sistema (R$29,90/mês) dá acesso ilimitado a Pilares, Skills, Projetos, Hábitos, notas, mind maps, Google Calendar sync e exportação — tudo conectado, sem limites de quantidade. Você ainda ganha 30 dias grátis do Jarbas pra experimentar. O Nexus AI (R$69,90/mês ou R$599,90/ano) inclui o Jarbas permanente + WhatsApp nativo + transcrição de áudio + análise de imagens + revisão semanal automática.",
+      "O Sistema (R$29,90/mês) dá acesso ilimitado a Pilares, Skills, Projetos, Hábitos, notas, mind maps, Google Calendar sync e exportação — tudo conectado, sem limites de quantidade. Você ainda ganha 7 dias grátis do Jarbas pra experimentar. O Nexus AI (R$69,90/mês, R$179,90/3 meses ou R$599,90/ano) inclui o Jarbas permanente + WhatsApp nativo + transcrição de áudio + análise de imagens + revisão semanal automática.",
   },
   {
     question: "Posso cancelar a qualquer momento?",
@@ -51,7 +51,7 @@ const faqs = [
   {
     question: "Tem desconto pra anual ou trimestral?",
     answer:
-      "Sim, no plano Nexus AI. Trimestral sai por R$179,90 (≈14% de desconto sobre o mensal). Anual sai por R$599,90 (≈28% de desconto). Ambos com os mesmos 14 dias de trial grátis. O plano Sistema é só mensal por enquanto.",
+      "Sim, no plano Nexus AI. Trimestral sai por R$179,90 (≈14% de desconto sobre o mensal, equivalente a R$59,97/mês). Anual sai por R$599,90 (≈28% de desconto, equivalente a R$49,99/mês). Todos com 7 dias de trial grátis. O plano Sistema é só mensal por enquanto.",
   },
 ];
 
