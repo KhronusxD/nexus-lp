@@ -2,113 +2,59 @@ import Navbar from "./components/Navbar";
 import FAQ from "./components/FAQ";
 import RevealOnScroll from "./components/RevealOnScroll";
 import GlowCard from "./components/GlowCard";
-
-const APP_URL = "https://nexus-lilac-iota.vercel.app";
-
-const logos = [
-  { src: "https://assets.aceternity.com/logos/openai.png", alt: "OpenAI" },
-  { src: "https://assets.aceternity.com/logos/hello-patient.png", alt: "Hello Patient" },
-  { src: "https://assets.aceternity.com/logos/granola.png", alt: "Granola" },
-  { src: "https://assets.aceternity.com/logos/characterai.png", alt: "Character AI" },
-  { src: "https://assets.aceternity.com/logos/oracle.png", alt: "Oracle" },
-  { src: "https://assets.aceternity.com/logos/portola.png", alt: "Portola" },
-  { src: "https://assets.aceternity.com/logos/accel.png", alt: "Accel" },
-  { src: "https://assets.aceternity.com/logos/bloomberg.png", alt: "Bloomberg" },
-  { src: "https://assets.aceternity.com/logos/forbes.png", alt: "Forbes" },
-  { src: "https://assets.aceternity.com/logos/softbank.png", alt: "SoftBank" },
-  { src: "https://assets.aceternity.com/logos/the-guardian.png", alt: "The Guardian" },
-  { src: "https://assets.aceternity.com/logos/wired.png", alt: "Wired" },
-];
-
-const testimonials = [
-  {
-    quote: "Eu usava Notion, Todoist, Google Calendar e ainda um caderno. O Nexus foi a primeira vez que senti que tudo estava no mesmo lugar — e se falando.",
-    name: "Camila Ferreira",
-    role: "Fundadora, Agência Plural",
-    avatar: "https://assets.aceternity.com/avatars/manu.webp",
-  },
-  {
-    quote: "O Jarbas reorganizou minha semana inteira em 30 segundos depois que eu disse que estava sobrecarregado. Isso não é produtividade — é inteligência de verdade.",
-    name: "Rafael Mendes",
-    role: "Head de Produto, Fintech Sólida",
-    avatar: "https://assets.aceternity.com/avatars/1.webp",
-  },
-  {
-    quote: "Finalmente entendi por que nunca conseguia manter meus hábitos. O Nexus me mostrou que eu quebrava sempre nas semanas com reuniões demais na segunda.",
-    name: "Beatriz Leal",
-    role: "Empreendedora e coach executiva",
-    avatar: "https://assets.aceternity.com/avatars/2.webp",
-  },
-  {
-    quote: "A hierarquia Pilares → Skills → Projetos mudou como eu penso sobre o meu tempo. Cada tarefa agora tem um propósito maior — e eu sei exatamente qual.",
-    name: "Thiago Carvalho",
-    role: "CTO, EdTech",
-    avatar: "https://assets.aceternity.com/avatars/manu.webp",
-  },
-  {
-    quote: "Substituiu minha sessão semanal de coaching. A revisão gerada pelo Jarbas é mais honesta do que qualquer pergunta que eu faria pra mim mesmo.",
-    name: "Mariana Costa",
-    role: "Diretora Comercial, Grupo Revelo",
-    avatar: "https://assets.aceternity.com/avatars/1.webp",
-  },
-  {
-    quote: "Gerencio uma agência, uma sociedade e ainda estudo inglês. O Nexus é o único sistema que aguenta a complexidade da minha vida sem explodir.",
-    name: "Lucas Andrade",
-    role: "Sócio, Consultoria de Growth",
-    avatar: "https://assets.aceternity.com/avatars/2.webp",
-  },
-];
+import { APP_URL } from "./config";
 
 const pricingPlans = [
   {
     name: "Grátis",
     price: "R$0",
     period: "",
-    description: "Para experimentar o sistema com calma.",
+    description: "Para experimentar a estrutura do Nexus.",
     features: [
       "Até 3 Pilares ativos",
+      "Até 3 Skills e 3 Projetos",
       "10 tarefas por projeto",
-      "Hábitos básicos",
+      "3 hábitos rastreados",
       "Agenda integrada",
-      "Acesso web e mobile",
+      "Histórico de 7 dias",
     ],
     cta: "Criar conta grátis",
-    href: `${APP_URL}/login`,
+    href: `${APP_URL}/cadastro`,
     popular: false,
   },
   {
     name: "Sistema",
-    price: "R$29",
+    price: "R$29,90",
     period: "/ mês",
-    description: "Acesso completo à estrutura visual do Nexus.",
+    description: "Sistema completo + 30 dias de Jarbas grátis.",
     features: [
-      "Pilares, Skills e Projetos ilimitados",
-      "Hábitos e Agenda sem limites",
-      "Tudo conectado e em contexto",
-      "Relatórios de progresso",
+      "Pilares, Skills, Projetos e Hábitos ilimitados",
       "Histórico completo",
-      "Suporte prioritário",
+      "Notas, mind maps e modo Deep Work",
+      "Relatórios e exportação (LGPD)",
+      "Google Calendar sync",
+      "30 dias de Jarbas IA grátis (depois R$69,90 ou volta ao Sistema)",
     ],
-    cta: "Começar agora",
-    href: "https://buy.stripe.com/test_cNibJ2fayaslcj55MO1oI00",
+    cta: "Começar 30 dias grátis",
+    href: `${APP_URL}/cadastro?plano=sistema`,
     popular: false,
   },
   {
     name: "Nexus AI",
-    price: "R$69",
+    price: "R$69,90",
     period: "/ mês",
-    description: "O sistema completo + o Jarbas, seu agente de IA.",
+    description: "O sistema completo + Jarbas permanente + WhatsApp.",
     features: [
       "Tudo do plano Sistema",
-      "Jarbas — agente de IA ativo",
-      "Automação de agenda por IA",
+      "Jarbas — agente de IA permanente",
+      "Nexus no seu WhatsApp (envio e resumo diário)",
+      "Transcrição de áudio e análise de imagens",
       "Revisão semanal gerada por IA",
-      "Análise de gaps de comportamento",
       "Comandos em linguagem natural",
-      "Insights preditivos de rotina",
+      "14 dias grátis — sem cobrança no início",
     ],
     cta: "Desbloquear o Jarbas",
-    href: "https://buy.stripe.com/test_5kQ8wQ9Qe7g93Mzb781oI01",
+    href: `${APP_URL}/cadastro?plano=nexus-ai`,
     popular: true,
   },
 ];
@@ -158,16 +104,16 @@ export default function Home() {
             {/* Badge */}
             <div className="animate-fade-in-up">
               <a
-                href="#produto"
+                href="#precos"
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-200 active:scale-[0.98]"
                 style={{
-                  background: "rgba(0,206,209,0.1)",
-                  color: "#00CED1",
-                  border: "1px solid rgba(0,206,209,0.25)",
+                  background: "rgba(50,205,50,0.1)",
+                  color: "#4ade80",
+                  border: "1px solid rgba(50,205,50,0.25)",
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--logo-cyan)" }} />
-                Apresentando o Sistema Operacional Pessoal
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#32CD32" }} />
+                Early access — primeiros 100 usuários
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -189,7 +135,7 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex items-center gap-3 animate-fade-in-up delay-300">
-              <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
+              <a href={`${APP_URL}/cadastro`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
                 Começar grátis
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -204,18 +150,20 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="mt-10 flex items-center gap-6 animate-fade-in-up delay-400">
-              {[
-                { value: "12k+", label: "usuários ativos",  color: LOGO.cyan.text   },
-                { value: "4.9★", label: "avaliação média",  color: LOGO.orange.text },
-                { value: "3x",   label: "mais execução",    color: LOGO.green.text  },
-              ].map((stat) => (
-                <div key={stat.label} className="flex items-baseline gap-1.5">
-                  <span className="text-sm font-semibold" style={{ color: stat.color }}>{stat.value}</span>
-                  <span className="text-xs text-[var(--foreground-subtle)]">{stat.label}</span>
-                </div>
-              ))}
+            {/* Trust indicators — honestos pra early access */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 animate-fade-in-up delay-400">
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-sm font-semibold" style={{ color: LOGO.green.text }}>30 dias</span>
+                <span className="text-xs text-[var(--foreground-subtle)]">de Jarbas grátis no plano Sistema</span>
+              </div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-sm font-semibold" style={{ color: LOGO.cyan.text }}>Sem cartão</span>
+                <span className="text-xs text-[var(--foreground-subtle)]">pra começar grátis</span>
+              </div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-sm font-semibold" style={{ color: LOGO.orange.text }}>Cancela quando quiser</span>
+                <span className="text-xs text-[var(--foreground-subtle)]">sem multa</span>
+              </div>
             </div>
 
             {/* Dashboard Preview */}
@@ -227,7 +175,7 @@ export default function Home() {
                     <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                     <div className="w-3 h-3 rounded-full bg-green-500/70" />
                   </div>
-                  <div className="mx-auto text-xs text-[var(--foreground-subtle)]">app.nexus.so</div>
+                  <div className="mx-auto text-xs text-[var(--foreground-subtle)]">nexus.app</div>
                 </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -240,27 +188,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* ==================== LOGOS ==================== */}
-        <RevealOnScroll>
-          <section className="py-16 md:py-24">
-            <p className="mx-auto max-w-sm text-center text-sm text-[var(--foreground-subtle)]">
-              Para quem tem muita coisa para gerir — e quer clareza, não mais ferramentas.
-            </p>
-            <div className="mx-auto mt-10 grid max-w-5xl grid-cols-4 md:grid-cols-6 gap-y-8 px-4">
-              {logos.map((logo) => (
-                <div key={logo.alt} className="flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-7 object-contain invert filter opacity-30 hover:opacity-70 transition-opacity duration-200"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-        </RevealOnScroll>
 
         {/* ==================== PROBLEMA ==================== */}
         <section className="mx-auto max-w-7xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
@@ -355,17 +282,9 @@ export default function Home() {
                   </div>
 
                   <div className="mt-5 rounded-xl p-4" style={{ background: "var(--surface-elevated)", border: "1px solid var(--border-subtle)" }}>
-                    <p className="text-xs text-[var(--foreground-muted)] italic">
-                      &ldquo;A hierarquia Pilares → Skills → Projetos mudou como eu penso sobre o meu tempo. Cada tarefa agora tem um propósito maior.&rdquo;
+                    <p className="text-xs text-[var(--foreground-muted)] leading-relaxed">
+                      <span className="font-semibold text-[var(--foreground)]">Nada perde contexto.</span> Conclua uma tarefa e o projeto avança. Avance o projeto e a skill evolui. Evolua a skill e o pilar ganha tração.
                     </p>
-                    <div className="flex items-center gap-2 mt-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="https://assets.aceternity.com/avatars/manu.webp" alt="Thiago" className="w-5 h-5 rounded-full" />
-                      <div>
-                        <div className="text-xs font-medium text-[var(--foreground)]">Thiago Carvalho</div>
-                        <div className="text-[10px] text-[var(--foreground-subtle)]">CTO, EdTech</div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </GlowCard>
@@ -529,51 +448,200 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ==================== TESTIMONIALS ==================== */}
-        <section id="depoimentos" className="py-16 md:py-24 overflow-hidden">
+        {/* ==================== WHATSAPP + INTEGRAÇÕES ==================== */}
+        <section className="mx-auto max-w-7xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
           <RevealOnScroll>
-            <h2 className="mx-auto max-w-xl text-center text-2xl md:text-4xl font-semibold tracking-tight text-[var(--foreground)] px-4">
-              Quem usa, não volta atrás
-            </h2>
-            <p className="text-center text-[var(--foreground-subtle)] mt-2 text-sm">De empreendedores a executivos de alto desempenho.</p>
+            <div className="text-center">
+              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#25D366" }}>Onde você já está</span>
+              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[var(--foreground)]">
+                Seu sistema mora no seu WhatsApp
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base text-[var(--foreground-muted)]">
+                Não precisa abrir o app. O Nexus te encontra onde você já vive — e seu calendário continua sendo o seu calendário.
+              </p>
+            </div>
           </RevealOnScroll>
 
-          <div className="mt-10 space-y-4">
-            <div className="marquee-container">
-              <div className="marquee-track animate-marquee-left">
-                {[...testimonials, ...testimonials].map((t, i) => (
-                  <div key={i} className="glass-card min-w-[300px] max-w-xs rounded-2xl p-5 flex-shrink-0">
-                    <p className="text-sm text-[var(--foreground-muted)] italic leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                    <div className="flex items-center gap-2.5 mt-4">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={t.avatar} alt={t.name} className="w-6 h-6 rounded-full" />
-                      <div>
-                        <div className="text-xs font-semibold text-[var(--foreground)]">{t.name}</div>
-                        <div className="text-[10px] text-[var(--foreground-subtle)]">{t.role}</div>
-                      </div>
+          <div className="mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* WhatsApp card */}
+            <RevealOnScroll className="md:col-span-2">
+              <GlowCard glow="green" className="glass-card card-hover-glow rounded-2xl h-full">
+                <div className="p-6 flex flex-col h-full">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: "#25D366" }}>
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[var(--foreground)] leading-none">WhatsApp nativo</h3>
+                      <p className="text-[10px] font-semibold" style={{ color: "#25D366" }}>conversas que viram ações</p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <p className="mt-2 text-sm text-[var(--foreground-muted)]">
+                    Pareie em 30 segundos. O Jarbas vira mais um contato — e responde como gente.
+                  </p>
 
-            <div className="marquee-container">
-              <div className="marquee-track animate-marquee-right">
-                {[...testimonials.slice(3), ...testimonials, ...testimonials.slice(0, 3)].map((t, i) => (
-                  <div key={i} className="glass-card min-w-[300px] max-w-xs rounded-2xl p-5 flex-shrink-0">
-                    <p className="text-sm text-[var(--foreground-muted)] italic leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                    <div className="flex items-center gap-2.5 mt-4">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={t.avatar} alt={t.name} className="w-6 h-6 rounded-full" />
-                      <div>
-                        <div className="text-xs font-semibold text-[var(--foreground)]">{t.name}</div>
-                        <div className="text-[10px] text-[var(--foreground-subtle)]">{t.role}</div>
+                  <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
+                    {[
+                      { from: "jarbas", text: "Bom dia! Hoje você tem 4 tarefas e 1 reunião às 14h. Quer que eu mande o resumo agora?" },
+                      { from: "user", text: "feito academia ✓" },
+                      { from: "jarbas", text: "Marcado. 5 dias seguidos — sequência mais longa do mês." },
+                      { from: "user", text: "moveu reunião do silva pra quinta às 10h" },
+                      { from: "jarbas", text: "Pronto. Reagendei e avisei que ele confirmou. Bloqueei 30min antes pra você se preparar." },
+                      { from: "user", text: "[áudio 12s] 'agendar consulta dentista próxima terça à tarde'" },
+                    ].map((msg, i) => (
+                      <div
+                        key={i}
+                        className="rounded-xl px-3 py-2 text-xs leading-relaxed"
+                        style={
+                          msg.from === "jarbas"
+                            ? { background: "rgba(37,211,102,0.08)", border: "1px solid rgba(37,211,102,0.2)", color: "var(--foreground)" }
+                            : { background: "var(--surface-elevated)", border: "1px solid var(--border-subtle)", color: "var(--foreground-muted)" }
+                        }
+                      >
+                        <span className="font-medium" style={{ color: msg.from === "jarbas" ? "#25D366" : "var(--foreground-subtle)" }}>
+                          {msg.from === "jarbas" ? "Jarbas · " : "Você · "}
+                        </span>
+                        {msg.text}
                       </div>
+                    ))}
+                  </div>
+
+                  <p className="mt-4 text-[10px] text-[var(--foreground-subtle)]">
+                    Áudio transcrito, foto analisada, tarefa criada. Disponível no plano <span className="font-semibold" style={{ color: LOGO.cyan.text }}>Nexus AI</span>.
+                  </p>
+                </div>
+              </GlowCard>
+            </RevealOnScroll>
+
+            {/* Google Calendar card */}
+            <RevealOnScroll revealClass="reveal delay-100">
+              <GlowCard glow="cyan" className="glass-card card-hover-glow rounded-2xl h-full">
+                <div className="p-6 flex flex-col h-full">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(66,133,244,0.12)", border: "1px solid rgba(66,133,244,0.25)" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[var(--foreground)] leading-none">Google Calendar</h3>
+                      <p className="text-[10px] font-semibold" style={{ color: "#4285F4" }}>sync bidirecional</p>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <p className="mt-2 text-sm text-[var(--foreground-muted)]">
+                    Não migre. Conecte. Tudo que você marca no Nexus aparece no Google — e vice-versa.
+                  </p>
+
+                  <ul className="mt-5 space-y-2.5 flex-1">
+                    {[
+                      "Eventos do Google aparecem no Nexus",
+                      "Eventos do Nexus aparecem no Google",
+                      "Múltiplos calendários (pessoal, trabalho, família)",
+                      "Reagendamento do Jarbas atualiza nos dois lados",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-[var(--foreground-muted)]">
+                        <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: "#4285F4" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </GlowCard>
+            </RevealOnScroll>
+          </div>
+        </section>
+
+        {/* ==================== FEATURES SECUNDÁRIAS ==================== */}
+        <section className="mx-auto max-w-7xl px-4 md:px-8 pb-16 md:pb-24">
+          <RevealOnScroll>
+            <div className="text-center">
+              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: LOGO.orange.text }}>Mais do que tarefas</span>
+              <h2 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-[var(--foreground)]">
+                As ferramentas que o sistema operacional precisa ter
+              </h2>
             </div>
+          </RevealOnScroll>
+
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              {
+                title: "Notas com editor rich",
+                desc: "Capture ideias, anote reuniões e atrele às pillars/projetos relevantes.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                ),
+                color: LOGO.cyan,
+              },
+              {
+                title: "Mind maps visuais",
+                desc: "Estruture pensamentos em nós conectados, com zoom e arraste.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                    <circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="6" cy="18" r="2.5" /><circle cx="18" cy="18" r="2.5" /><circle cx="12" cy="12" r="2.5" />
+                    <path strokeLinecap="round" d="M8 7l3 3m5-3l-3 3m-5 7l3-3m5 3l-3-3" />
+                  </svg>
+                ),
+                color: LOGO.green,
+              },
+              {
+                title: "Modo Deep Work",
+                desc: "Tela cheia, timer, métricas. Quando você precisa entrar em flow.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
+                color: LOGO.orange,
+              },
+              {
+                title: "Command palette ⌘K",
+                desc: "Qualquer ação em 1 segundo. Sem clicar em menu.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 9V7a2 2 0 012-2h4a2 2 0 012 2v2m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2v-6a2 2 0 00-2-2" />
+                  </svg>
+                ),
+                color: LOGO.cyan,
+              },
+              {
+                title: "PWA + push notifications",
+                desc: "Instale como app no celular e desktop. Notificações nativas.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                ),
+                color: LOGO.green,
+              },
+              {
+                title: "Exportação total (LGPD)",
+                desc: "Seus dados são seus. Exporte em PDF a qualquer momento.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                  </svg>
+                ),
+                color: LOGO.orange,
+              },
+            ].map((f) => (
+              <RevealOnScroll key={f.title}>
+                <div className="glass-card rounded-2xl p-5 h-full">
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-3"
+                    style={{ background: f.color.bg, color: f.color.text, border: `1px solid ${f.color.border}` }}
+                  >
+                    {f.icon}
+                  </div>
+                  <h3 className="text-sm font-semibold text-[var(--foreground)]">{f.title}</h3>
+                  <p className="mt-1 text-xs text-[var(--foreground-muted)] leading-relaxed">{f.desc}</p>
+                </div>
+              </RevealOnScroll>
+            ))}
           </div>
         </section>
 
@@ -680,7 +748,7 @@ export default function Home() {
                     Comece grátis. Sem cartão de crédito. Em menos de 5 minutos você tem sua estrutura de vida montada — e o Jarbas pronto para trabalhar.
                   </p>
                   <div className="mt-8 flex items-center gap-3">
-                    <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
+                    <a href={`${APP_URL}/cadastro`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
                       Começar grátis
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -734,13 +802,12 @@ export default function Home() {
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {[
-              { label: "Produto",       href: "#produto" },
-              { label: "Preços",        href: "#precos" },
-              { label: "Blog",          href: "#" },
-              { label: "Documentação",  href: "#" },
-              { label: "Changelog",     href: "#" },
-              { label: "Privacidade",   href: "/privacidade" },
-              { label: "Termos",        href: "/termos" },
+              { label: "Produto",     href: "#produto" },
+              { label: "Preços",      href: "#precos" },
+              { label: "FAQ",         href: "#faq" },
+              { label: "Privacidade", href: "/privacidade" },
+              { label: "Termos",      href: "/termos" },
+              { label: "Contato",     href: "mailto:contato@nexus.app" },
             ].map((link) => (
               <a key={link.label} href={link.href} className="footer-link text-xs">
                 {link.label}
@@ -748,7 +815,10 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="text-xs" style={{ color: "var(--foreground-subtle)" }}>© {new Date().getFullYear()} Nexus. Todos os direitos reservados.</p>
+          <p className="text-xs text-center md:text-right" style={{ color: "var(--foreground-subtle)" }}>
+            © {new Date().getFullYear()} Nexus.<br className="md:hidden" />
+            <span className="md:ml-1">Todos os direitos reservados.</span>
+          </p>
         </div>
       </footer>
     </>

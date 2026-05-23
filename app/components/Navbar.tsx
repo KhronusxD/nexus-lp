@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { APP_URL } from "../config";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -54,10 +55,6 @@ export default function Navbar() {
             </a>
           ))}
 
-          <a href="#depoimentos" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
-            Depoimentos
-          </a>
-
           <a href="#faq" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
             FAQ
           </a>
@@ -65,10 +62,10 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="hidden md:flex items-center gap-3">
-          <a href="https://nexus-lilac-iota.vercel.app/login" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
+          <a href={`${APP_URL}/login`} className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors duration-200">
             Entrar
           </a>
-          <a href="https://nexus-lilac-iota.vercel.app/login" className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg inline-flex items-center gap-2 active:scale-95">
+          <a href={`${APP_URL}/cadastro`} className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg inline-flex items-center gap-2 active:scale-95">
             Começar grátis
           </a>
         </div>
@@ -105,17 +102,14 @@ export default function Navbar() {
           <a href="#precos" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
             Preços
           </a>
-          <a href="#depoimentos" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
-            Depoimentos
-          </a>
           <a href="#faq" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors" onClick={() => setMobileOpen(false)}>
             FAQ
           </a>
           <hr className="border-[var(--border)]" />
-          <a href="https://nexus-lilac-iota.vercel.app/login" className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
+          <a href={`${APP_URL}/login`} className="text-base text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors">
             Entrar
           </a>
-          <a href="https://nexus-lilac-iota.vercel.app/login" className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg w-fit inline-flex items-center">
+          <a href={`${APP_URL}/cadastro`} className="btn-primary-gradient text-white text-sm font-semibold px-4 h-9 rounded-lg w-fit inline-flex items-center">
             Começar grátis
           </a>
         </div>

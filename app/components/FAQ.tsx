@@ -9,29 +9,49 @@ const faqs = [
       "O Nexus é um Sistema Operacional Pessoal — não mais um app de produtividade isolado. Ele conecta todas as dimensões da sua vida (Pilares, Skills, Projetos, Hábitos e Agenda) em uma única estrutura coerente, onde cada ação do dia alimenta um propósito maior.",
   },
   {
-    question: "O que é o Jarbas e como ele funciona?",
-    answer:
-      "O Jarbas é seu agente de IA que vive dentro do seu sistema. Diferente de chatbots comuns, ele não apenas responde — ele executa. Fale em linguagem natural e ele reorganiza sua agenda, marca hábitos concluídos, cria tarefas, identifica gaps de comportamento e conduz sua revisão semanal automaticamente.",
-  },
-  {
     question: "Em que o Nexus é diferente do Notion, Todoist ou Google Calendar?",
     answer:
-      "Essas ferramentas são ótimas isoladamente — mas nenhuma delas sabe que você está atrasado na sua meta de leitura, que uma reunião conflita com seu foco da tarde, ou que você dorme mal nas semanas em que ignora determinado hábito. O Nexus enxerga a pessoa inteira, não só a tarefa.",
+      "Essas ferramentas são ótimas isoladamente — mas nenhuma delas sabe que você está atrasado na sua meta de leitura, que uma reunião conflita com seu foco da tarde, ou que você dorme mal nas semanas em que ignora determinado hábito. O Nexus enxerga a pessoa inteira, não só a tarefa. E você não precisa abandonar o Google Calendar — o Nexus sincroniza com ele dos dois lados.",
+  },
+  {
+    question: "Como funciona o trial? Vocês cobram o cartão antes?",
+    answer:
+      "No plano Sistema, você tem 30 dias do Jarbas grátis após assinar. No plano Nexus AI, são 14 dias grátis. Em ambos, exigimos cartão no início para você não perder o acesso quando o trial acabar — mas a primeira cobrança só acontece no fim do período. Se cancelar antes, não é cobrado nada. No plano Grátis, não pedimos cartão de jeito nenhum.",
+  },
+  {
+    question: "O WhatsApp é obrigatório? Como conecto?",
+    answer:
+      "Não é obrigatório — o Nexus funciona inteiro no app. Mas se você assina o plano Nexus AI, em 30 segundos você pareia seu número e o Jarbas vira mais um contato no seu WhatsApp. Recebe resumo do dia, marca hábitos por mensagem, manda áudio que vira tarefa. Funciona com seu WhatsApp pessoal, sem precisar de chip dedicado.",
+  },
+  {
+    question: "Qual a diferença entre Sistema e Nexus AI?",
+    answer:
+      "O Sistema (R$29,90/mês) dá acesso ilimitado a Pilares, Skills, Projetos, Hábitos, notas, mind maps, Google Calendar sync e exportação — tudo conectado, sem limites de quantidade. Você ainda ganha 30 dias grátis do Jarbas pra experimentar. O Nexus AI (R$69,90/mês ou R$599,90/ano) inclui o Jarbas permanente + WhatsApp nativo + transcrição de áudio + análise de imagens + revisão semanal automática.",
+  },
+  {
+    question: "Posso cancelar a qualquer momento?",
+    answer:
+      "Sim, em 2 cliques dentro de Configurações → Assinatura. Sem multa, sem ligação. Você mantém acesso até o fim do período pago. Se voltar pro plano gratuito, seus dados não somem — só voltam os limites do plano (3 pilares, 3 projetos, etc.), e os itens excedentes ficam arquivados.",
+  },
+  {
+    question: "Meus dados são meus? Como exporto?",
+    answer:
+      "Sim. Você pode exportar todos os seus dados em PDF a qualquer momento (Pilares, projetos, hábitos, notas, agenda). E se quiser deletar a conta, isso também é em 2 cliques — hard delete em até 30 dias, conforme LGPD. Não vendemos dados, não compartilhamos com terceiros e não usamos seu conteúdo pra treinar IA.",
+  },
+  {
+    question: "Vocês usam meus dados pra treinar IA?",
+    answer:
+      "Não. Suas tarefas, notas e mensagens com o Jarbas nunca alimentam treinamento de modelos — nem nossos, nem de provedores externos. Usamos APIs com configuração explícita de no-training. Sua estrutura de vida é sua.",
   },
   {
     question: "Preciso migrar tudo de uma vez?",
     answer:
-      "Não. Você começa pela estrutura que faz mais sentido para você agora — pode ser seus pilares de vida, seus projetos ativos ou seus hábitos — e vai expandindo naturalmente. O Nexus foi projetado para crescer com você.",
+      "Não. Você começa pela estrutura que faz mais sentido agora — pode ser seus pilares de vida, seus projetos ativos ou seus hábitos — e vai expandindo. O onboarding de 5 minutos te guia. O Google Calendar sync ajuda quem já tem agenda cheia.",
   },
   {
-    question: "Para quem o Nexus foi feito?",
+    question: "Tem desconto pra anual ou trimestral?",
     answer:
-      "Para profissionais de alto desempenho, empreendedores e mentes inquietas que gerenciam múltiplas frentes ao mesmo tempo. Se você já testou Notion e Todoist mas ainda sente que falta uma visão sistêmica que conecte planejamento e execução, o Nexus é para você.",
-  },
-  {
-    question: "Qual a diferença entre o Plano Sistema e o Plano Nexus AI?",
-    answer:
-      "O Plano Sistema dá acesso completo à estrutura visual — Pilares, Skills, Projetos, Hábitos e Agenda com tudo conectado. O Plano Nexus AI desbloqueia o Jarbas: automação ativa, revisões semanais geradas por IA, análise de gaps de comportamento e comandos em linguagem natural.",
+      "Sim, no plano Nexus AI. Trimestral sai por R$179,90 (≈14% de desconto sobre o mensal). Anual sai por R$599,90 (≈28% de desconto). Ambos com os mesmos 14 dias de trial grátis. O plano Sistema é só mensal por enquanto.",
   },
 ];
 
@@ -63,7 +83,7 @@ export default function FAQ() {
           </button>
           <div
             className={`overflow-hidden transition-all duration-300 ease-out ${
-              openIndex === i ? "max-h-48 pb-4" : "max-h-0"
+              openIndex === i ? "max-h-[28rem] pb-4" : "max-h-0"
             }`}
           >
             <p className="px-5 text-sm text-neutral-400 leading-relaxed">{faq.answer}</p>
