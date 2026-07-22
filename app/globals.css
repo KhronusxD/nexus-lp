@@ -2,21 +2,36 @@
 
 /* ===== NEXUS DESIGN TOKENS ===== */
 :root {
-  --background: #010101;
-  --surface: #18181b;
-  --surface-elevated: #1f1f24;
-  --border: #2a2a30;
-  --border-subtle: #1e1e22;
+  /* Background — hierarquia sem preto absoluto (portado do design refinado) */
+  --background: #0b0b0d;
+  --bg: #0b0b0d;
+  --bg-grad: radial-gradient(140% 120% at 80% -10%, #131318 0%, #0b0b0d 46%);
 
-  --foreground: #f4f4f5;
-  --foreground-muted: #71717a;
-  --foreground-subtle: #52525b;
+  /* Surface scale — 3 níveis */
+  --surface: #141417;
+  --surface-2: #1a1a1f;
+  --surface-3: #222228;
+  --surface-elevated: #1a1a1f;
 
-  /* Logo colors */
+  /* Border scale */
+  --border: #27272e;
+  --border-strong: #34343d;
+  --border-subtle: #1e1e23;
+
+  /* Foreground — muted mais quente que zinc-500 */
+  --foreground: #f3f3f5;
+  --foreground-muted: #9b9ba6;
+  --foreground-subtle: #696973;
+  --fg: #f3f3f5;
+  --fg-muted: #9b9ba6;
+  --fg-subtle: #696973;
+
+  /* Logo colors — identidade tricolor da LP */
   --logo-cyan:   #00CED1;
   --logo-orange: #FF6B35;
   --logo-green:  #32CD32;
 
+  /* Accent primário da LP = cyan */
   --accent: #00CED1;
   --accent-hover: #32CD32;
   --accent-muted: rgba(0, 206, 209, 0.15);
@@ -29,11 +44,25 @@
 
   --success: #22c55e;
   --warning: #f59e0b;
-  --danger: #ef4444;
+  --danger: #f0584f;
 
+  /* Radius scale (nível Tailwind + escala fina) */
   --radius: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+  --r-sm: 7px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-pill: 999px;
+
+  /* Shadow scale (dark = preta forte) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.18);
+  --shadow-md: 0 10px 30px -10px rgba(0,0,0,.6);
+  --shadow-lg: 0 24px 60px -16px rgba(0,0,0,.72);
+
+  /* Scrim (overlay) */
+  --scrim: rgba(0,0,0,.62);
 }
 
 @theme inline {
@@ -42,11 +71,20 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
   --color-surface-elevated: var(--surface-elevated);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-subtle: var(--border-subtle);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-muted: var(--accent-muted);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
 }
 
 * { box-sizing: border-box; }
@@ -54,12 +92,15 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
+  background: var(--bg-grad, var(--background));
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -72,7 +113,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Scrollbar */
+/* Scrollbar — minimal */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
@@ -147,14 +188,13 @@ body {
 .glow-card:hover::before { opacity: 1; }
 .glow-card > * { position: relative; z-index: 1; }
 
-/* ===== PRIMARY BUTTON — animated gradient vai e volta ===== */
+/* ===== PRIMARY BUTTON — animated gradient (mantém verde da LP) ===== */
 @keyframes btn-gradient-flow {
   0%   { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
 
 .btn-primary-gradient {
-  /* variações de verde — escuro → logo → claro → volta */
   background: linear-gradient(90deg,
     #00A040,
     #32CD32,
@@ -232,7 +272,7 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
-/* ===== LOGO GRADIENT TEXT — animado também ===== */
+/* ===== LOGO GRADIENT TEXT — animado ===== */
 @keyframes text-gradient-flow {
   0%   { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
@@ -255,8 +295,8 @@ body {
 
 /* ===== DASHBOARD MOCKUP ===== */
 .dashboard-frame {
-  background: linear-gradient(145deg, #18181b, #010101);
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05);
+  background: linear-gradient(145deg, var(--surface-2), var(--background));
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.05);
 }
 
 /* ===== MARQUEE ===== */
@@ -356,3 +396,5 @@ body {
 .reveal-right.active { opacity: 1; transform: translateX(0); }
 .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.8s ease-out; }
 .reveal-scale.active { opacity: 1; transform: scale(1); }
+</content>
+</invoke>

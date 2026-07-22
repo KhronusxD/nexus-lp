@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0c",
+  themeColor: "#0b0b0d",
   width: "device-width",
   initialScale: 1,
 };
@@ -73,7 +73,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {/* Ambient gradient background — cobre todas as páginas (home, termos, privacidade) */}
+        <div className="nexus-ambient" aria-hidden="true" />
+        {children}
+      </body>
     </html>
   );
 }
