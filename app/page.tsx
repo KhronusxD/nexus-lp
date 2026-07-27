@@ -5,18 +5,20 @@ import GlowCard from "./components/GlowCard";
 
 const APP_URL = "https://nexus-lilac-iota.vercel.app";
 
+/* Os planos seguem o ciclo: Grátis = Capturar + Executar; Sistema = o ciclo
+   completo (Preparar + Equilibrar); Nexus AI = o Jarbas operando por você. */
 const pricingPlans = [
   {
     name: "Grátis",
     price: "R$0",
     period: "",
-    description: "Para experimentar a estrutura do Nexus.",
+    subPrice: "",
+    description: "Capture e execute — sinta o sistema.",
     features: [
-      "Até 3 Pilares ativos",
-      "Até 3 Skills e 3 Projetos",
-      "10 tarefas por projeto",
-      "3 hábitos rastreados",
-      "Agenda integrada",
+      "Captura rápida (⌘K, celular, atalho)",
+      "Quadro de post-its do dia",
+      "Agenda integrada + Google Calendar",
+      "Até 3 Pilares, 3 Projetos e 3 hábitos",
       "Histórico de 7 dias",
     ],
     cta: "Criar conta grátis",
@@ -27,16 +29,17 @@ const pricingPlans = [
     name: "Sistema",
     price: "R$29,90",
     period: "/ mês",
-    description: "Sistema completo + 30 dias de Jarbas grátis.",
+    subPrice: "",
+    description: "O ciclo completo: preparar e equilibrar.",
     features: [
-      "Pilares, Skills, Projetos e Hábitos ilimitados",
-      "Histórico completo",
-      "Notas, mind maps e modo Deep Work",
-      "Relatórios e exportação (LGPD)",
-      "Google Calendar sync",
-      "30 dias de Jarbas IA grátis (depois R$69,90 ou volta ao Sistema)",
+      "Pilares, Projetos, Hábitos e Skills ilimitados",
+      "Planning com rituais recorrentes — monte o dia em um clique",
+      "Vetores de energia + Pulso semanal",
+      "Canvas infinito estilo Miro por projeto",
+      "Notas, documentos e exportação (LGPD)",
+      "7 dias de Jarbas grátis pra experimentar",
     ],
-    cta: "Começar 30 dias grátis",
+    cta: "Começar com 7 dias grátis",
     href: `${APP_URL}/cadastro?plano=sistema`,
     popular: false,
   },
@@ -44,15 +47,15 @@ const pricingPlans = [
     name: "Nexus AI",
     price: "R$69,90",
     period: "/ mês",
-    description: "O sistema completo + Jarbas permanente + WhatsApp.",
+    subPrice: "ou R$179,90/trimestre · R$599,90/ano",
+    description: "Tudo isso + o Jarbas operando por você.",
     features: [
       "Tudo do plano Sistema",
-      "Jarbas — agente de IA permanente",
-      "Nexus no seu WhatsApp (envio e resumo diário)",
-      "Transcrição de áudio e análise de imagens",
+      "Jarbas permanente — no app e no seu WhatsApp",
+      "\"Monta meu dia\" e balanço de energia por mensagem",
+      "Capture por áudio (transcrição) e imagem",
       "Revisão semanal gerada por IA",
-      "Comandos em linguagem natural",
-      "14 dias grátis — sem cobrança no início",
+      "7 dias grátis — sem cobrança no início",
     ],
     cta: "Desbloquear o Jarbas",
     href: `${APP_URL}/cadastro?plano=nexus-ai`,
@@ -80,12 +83,18 @@ const LOGO = {
 
 type LogoColor = keyof typeof LOGO;
 
-const hierarchy: { label: string; desc: string; color: LogoColor }[] = [
-  { label: "Pilares",  desc: "As grandes áreas da sua vida",     color: "cyan"   },
-  { label: "Skills",   desc: "Competências que você desenvolve", color: "orange" },
-  { label: "Projetos", desc: "Iniciativas com começo e fim",     color: "green"  },
-  { label: "Hábitos",  desc: "Ações que constroem quem você é",  color: "cyan"   },
-  { label: "Agenda",   desc: "O que você vai fazer hoje",        color: "orange" },
+const cycle: { label: string; desc: string; color: LogoColor }[] = [
+  { label: "Capturar",   desc: "Tire da cabeça: ⌘K, celular ou WhatsApp",            color: "cyan"   },
+  { label: "Preparar",   desc: "Planning: sprint, rascunhos e rituais recorrentes",   color: "orange" },
+  { label: "Executar",   desc: "Quadro de post-its do dia + calendário",              color: "green"  },
+  { label: "Equilibrar", desc: "Vetores: quanto você repôs vs quanto gastou",         color: "cyan"   },
+];
+
+/* Os três vetores de energia — a física do produto (cores reais do app) */
+const vectors = [
+  { label: "Recarga",  desc: "O que repõe: descanso, esporte, hobby",          hex: "#22c55e", pct: 32 },
+  { label: "Operação", desc: "O que gasta: trabalho, entregas, decisões",      hex: "#f59e0b", pct: 55 },
+  { label: "Conexão",  desc: "O que ancora: pessoas, presença, vínculos",      hex: "#ec4899", pct: 13 },
 ];
 
 export default function Home() {
@@ -121,15 +130,15 @@ export default function Home() {
 
             {/* Heading */}
             <h1 className="mt-6 max-w-4xl text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-[var(--foreground)] animate-fade-in-up delay-100 leading-[1.1]">
-              Sua vida inteira em<br />
+              Você não administra tempo.<br />
               <span className="logo-gradient-text">
-                um único contexto.
+                Você administra energia.
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-5 max-w-2xl text-base md:text-lg text-[var(--foreground-muted)] animate-fade-in-up delay-200 leading-relaxed">
-              Abandone a fragmentação de dezenas de apps isolados. O Nexus conecta seus hábitos, projetos e agenda em uma estrutura única — com uma inteligência artificial que trabalha ativamente para garantir que você execute o que realmente importa.
+              O Nucly é o sistema operacional de energia pessoal. Capture tudo que pesa na mente, prepare o dia com rituais recorrentes, execute no quadro de post-its — e veja, toda semana, se você repôs mais do que gastou. Com o Jarbas, o agente que monta seu dia por WhatsApp.
             </p>
 
             {/* CTA Buttons */}
@@ -152,8 +161,8 @@ export default function Home() {
             {/* Trust indicators — honestos pra early access */}
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 animate-fade-in-up delay-400">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-sm font-semibold" style={{ color: LOGO.green.text }}>30 dias</span>
-                <span className="text-xs text-[var(--foreground-subtle)]">de Jarbas grátis no plano Sistema</span>
+                <span className="text-sm font-semibold" style={{ color: LOGO.green.text }}>7 dias grátis</span>
+                <span className="text-xs text-[var(--foreground-subtle)]">em qualquer plano pago</span>
               </div>
               <div className="flex items-baseline gap-1.5">
                 <span className="text-sm font-semibold" style={{ color: LOGO.cyan.text }}>Sem cartão</span>
@@ -179,7 +188,7 @@ export default function Home() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/prints/hero-dashboard.png"
-                  alt="Preview do Nexus"
+                  alt="Preview do Nucly"
                   className="w-full"
                   loading="lazy"
                 />
@@ -195,13 +204,13 @@ export default function Home() {
               <div>
                 <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: LOGO.orange.text }}>O problema</span>
                 <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-[var(--foreground)]">
-                  Você tem ferramentas.<br />O que falta é contexto.
+                  Sua checklist está verde.<br />E você, esgotado.
                 </h2>
                 <p className="mt-4 text-[var(--foreground-muted)] leading-relaxed">
-                  Suas metas estão em algum lugar que nunca abre. Seus hábitos ficam num app esquecido. Sua agenda não sabe nada sobre seus projetos. O resultado? Você gasta mais energia gerenciando aplicativos do que vivendo a sua vida.
+                  Todo app de produtividade mede a mesma coisa: quantas tarefas você riscou. Nenhum mede o que cada tarefa custou de você. É assim que se chega à sexta-feira com a semana "100% produtiva" — e sem energia pra viver o que ela deveria financiar.
                 </p>
                 <p className="mt-3 text-[var(--foreground-muted)] leading-relaxed">
-                  Notion, Todoist e Google Calendar são ótimos — mas nenhum deles sabe que você está atrasado na sua meta de leitura, que essa reunião conflita com seu momento de foco, ou que você dorme mal nas semanas em que ignora determinado hábito.
+                  Notion, Todoist e Google Calendar são ótimos em organizar o que fazer. Mas nenhum deles percebe que faz 12 dias que nada te recarrega, que a semana teve zero momentos com quem importa, ou que aquele pilar que você jura ser prioridade está há um mês sem uma única atividade.
                 </p>
               </div>
             </RevealOnScroll>
@@ -237,12 +246,12 @@ export default function Home() {
         {/* ==================== FEATURES ==================== */}
         <section id="produto" className="mx-auto max-w-7xl px-4 md:px-8 py-16 md:py-24 lg:py-32">
           <RevealOnScroll>
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: LOGO.cyan.text }}>A solução</span>
+            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: LOGO.cyan.text }}>A física</span>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-[var(--foreground)]">
-              Uma hierarquia que conecta tudo
+              Um ciclo. Três energias.
             </h2>
             <p className="text-sm md:text-base text-[var(--foreground-muted)] mt-2">
-              Do propósito à execução diária — em uma estrutura só.
+              Capturar → Preparar → Executar → Equilibrar — com cada atividade pesando no vetor certo.
             </p>
           </RevealOnScroll>
 
@@ -253,13 +262,13 @@ export default function Home() {
             <RevealOnScroll className="md:row-span-2">
               <GlowCard glow="cyan" className="glass-card card-hover-glow rounded-2xl h-full">
                 <div className="p-6 flex flex-col h-full">
-                  <h3 className="text-base font-semibold text-[var(--foreground)]">Do propósito ao dia</h3>
+                  <h3 className="text-base font-semibold text-[var(--foreground)]">O ciclo do dia</h3>
                   <p className="mt-1.5 text-sm text-[var(--foreground-muted)]">
-                    Cada ação pequena alimenta um objetivo maior. A hierarquia do Nexus garante que nada fique perdido.
+                    Da ideia solta ao balanço da semana — quatro movimentos, um sistema.
                   </p>
 
                   <div className="mt-6 flex-1 flex flex-col gap-3">
-                    {hierarchy.map((item, i) => (
+                    {cycle.map((item, i) => (
                       <div key={item.label} className="flex items-center gap-3">
                         <div
                           className="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center text-xs font-bold"
@@ -271,7 +280,7 @@ export default function Home() {
                           <div className="text-sm font-medium text-[var(--foreground)]">{item.label}</div>
                           <div className="text-[11px] text-[var(--foreground-subtle)]">{item.desc}</div>
                         </div>
-                        {i < hierarchy.length - 1 && (
+                        {i < cycle.length - 1 && (
                           <svg className="w-3.5 h-3.5 text-[var(--border)] rotate-90 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
@@ -282,7 +291,7 @@ export default function Home() {
 
                   <div className="mt-5 rounded-xl p-4" style={{ background: "var(--surface-elevated)", border: "1px solid var(--border-subtle)" }}>
                     <p className="text-xs text-[var(--foreground-muted)] leading-relaxed">
-                      <span className="font-semibold text-[var(--foreground)]">Nada perde contexto.</span> Conclua uma tarefa e o projeto avança. Avance o projeto e a skill evolui. Evolua a skill e o pilar ganha tração.
+                      <span className="font-semibold text-[var(--foreground)]">Rituais recorrentes.</span> O que se repete vira modelo: toda manhã, "monta meu dia" traz seus rituais pro quadro com a checklist limpa — e o modelo fica guardado pra amanhã.
                     </p>
                   </div>
                 </div>
@@ -293,31 +302,23 @@ export default function Home() {
             <RevealOnScroll revealClass="reveal delay-100">
               <GlowCard glow="orange" className="glass-card card-hover-glow rounded-2xl">
                 <div className="p-6">
-                  <h3 className="text-base font-semibold text-[var(--foreground)]">Tudo fala com tudo</h3>
+                  <h3 className="text-base font-semibold text-[var(--foreground)]">Vetores de energia</h3>
                   <p className="mt-1.5 text-sm text-[var(--foreground-muted)]">
-                    Concluiu uma tarefa? O projeto avança. O projeto avança? A skill evolui. O Nexus enxerga a cadeia toda.
+                    Toda atividade pesa em um dos três. O pilar dá o padrão; você ajusta a exceção.
                   </p>
-                  <div className="mt-5 relative h-36 rounded-xl overflow-hidden" style={{ background: "var(--surface-elevated)" }}>
-                    <div className="absolute inset-0 opacity-20" style={{ background: "radial-gradient(circle at 30% 50%, rgba(99,102,241,0.4) 0%, transparent 50%)" }} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="flex items-center gap-1.5">
-                          {["Tarefa", "Projeto", "Skill", "Pilar"].map((item, i, arr) => (
-                            <div key={item} className="flex items-center gap-1.5">
-                              <div className="text-[10px] font-medium rounded px-2 py-1" style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }}>
-                                {item}
-                              </div>
-                              {i < arr.length - 1 && (
-                                <svg className="w-3 h-3 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              )}
-                            </div>
-                          ))}
+                  <div className="mt-5 rounded-xl p-4 space-y-3" style={{ background: "var(--surface-elevated)", border: "1px solid var(--border-subtle)" }}>
+                    {vectors.map((v) => (
+                      <div key={v.label}>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-xs font-semibold" style={{ color: v.hex }}>{v.label}</span>
+                          <span className="text-[10px] text-[var(--foreground-subtle)]">{v.desc}</span>
                         </div>
-                        <div className="text-[10px] text-[var(--foreground-subtle)]">cada ação propaga contexto</div>
+                        <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--surface)" }}>
+                          <div className="h-full rounded-full" style={{ width: `${v.pct}%`, background: v.hex }} />
+                        </div>
                       </div>
-                    </div>
+                    ))}
+                    <div className="text-[10px] text-[var(--foreground-subtle)] pt-1">um almoço de equipe é Conexão — mesmo no pilar Trabalho</div>
                   </div>
                 </div>
               </GlowCard>
@@ -337,17 +338,17 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="mt-2 text-sm text-[var(--foreground-muted)]">
-                    Não é um chatbot. É um agente que vive dentro do seu sistema — e age nele.
+                    Não é um chatbot. É um agente que vive dentro do seu sistema — e age nele, inclusive pelo WhatsApp.
                   </p>
 
                   <div className="mt-5 flex-1 flex flex-col gap-3">
                     {[
-                      { from: "user", text: "Jarbas, estou sobrecarregado essa semana." },
-                      { from: "jarbas", text: "Identifiquei 3 reuniões que podem ser assíncronas. Quer que eu libere sua tarde de quinta?" },
-                      { from: "user", text: "Sim. E como estão meus hábitos?" },
-                      { from: "jarbas", text: "Você zerou leitura e exercício. Historicamente, isso acontece quando há mais de 4 reuniões na segunda. Quer ajustar o padrão?" },
-                      { from: "user", text: "Sim, ajusta." },
-                      { from: "jarbas", text: "Feito. Limitei reuniões às segundas para max 2 e bloqueei 30min de leitura às 7h. ✓" },
+                      { from: "user", text: "Jarbas, monta meu dia." },
+                      { from: "jarbas", text: "Mandei seus 3 rituais pro quadro: Rotina de trabalho, Treino e Leitura — checklist limpa. Bora. ✓" },
+                      { from: "user", text: "Como está minha recarga essa semana?" },
+                      { from: "jarbas", text: "Recarga 18%, Operação 71%. Rapaz, você gastou bem mais do que repôs — que tal um bloco de descanso amanhã cedo?" },
+                      { from: "user", text: "Boa. E anota aí: ligar pro contador." },
+                      { from: "jarbas", text: "Capturado no Fluxo ✓ — sai da sua cabeça agora, organiza quando quiser." },
                     ].map((msg, i) => (
                       <div key={i} className={`flex items-end gap-2 ${msg.from === "user" ? "self-end flex-row-reverse" : ""}`}>
                         {msg.from === "jarbas" ? (
@@ -377,26 +378,26 @@ export default function Home() {
             <RevealOnScroll revealClass="reveal delay-300">
               <GlowCard glow="green" className="glass-card card-hover-glow rounded-2xl">
                 <div className="p-6">
-                  <h3 className="text-base font-semibold text-[var(--foreground)]">Revisão semanal com IA</h3>
+                  <h3 className="text-base font-semibold text-[var(--foreground)]">Pulso — o relatório de segunda</h3>
                   <p className="mt-1.5 text-sm text-[var(--foreground-muted)]">
-                    Todo domingo, o Jarbas analisa sua semana e entrega um relatório honesto — sem você preencher nada.
+                    Balanço de energia, pilares com fome e suas correntes — sem preencher nada.
                   </p>
                   <div className="mt-4 rounded-xl p-4 text-xs space-y-2.5" style={{ background: "var(--surface-elevated)", border: "1px solid var(--border)" }}>
-                    <div className="text-[var(--foreground-subtle)] mb-3 font-medium">📊 Revisão — semana 12</div>
+                    <div className="text-[var(--foreground-subtle)] mb-3 font-medium">⚡ Pulso — últimos 7 dias</div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[var(--foreground-muted)]">Hábitos cumpridos</span>
-                      <span className="font-semibold text-emerald-400">71%</span>
+                      <span className="text-[var(--foreground-muted)]">Recarga</span>
+                      <span className="font-semibold" style={{ color: "#22c55e" }}>32% ↑</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[var(--foreground-muted)]">Tarefas concluídas</span>
-                      <span className="font-semibold text-emerald-400">18 / 23</span>
+                      <span className="text-[var(--foreground-muted)]">Operação</span>
+                      <span className="font-semibold" style={{ color: "#f59e0b" }}>55%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[var(--foreground-muted)]">Skill em destaque</span>
-                      <span className="font-semibold text-[var(--accent)]">Liderança ↑</span>
+                      <span className="text-[var(--foreground-muted)]">Correntes vivas</span>
+                      <span className="font-semibold text-emerald-400">🔥 Treino · 12 dias</span>
                     </div>
-                    <div className="mt-1 p-2 rounded-lg text-[10px] font-medium" style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)", color: "#fbbf24" }}>
-                      ⚠ Gap: 0 sessões de deep work na quarta e quinta.
+                    <div className="mt-1 p-2 rounded-lg text-[10px] font-medium" style={{ background: "rgba(236,72,153,0.08)", border: "1px solid rgba(236,72,153,0.2)", color: "#f472b6" }}>
+                      ⚠ Pilar Família: 5 dias sem atividade — que tal hoje?
                     </div>
                   </div>
                 </div>
@@ -410,7 +411,7 @@ export default function Home() {
           <RevealOnScroll>
             <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: LOGO.green.text }}>Na prática</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-[var(--foreground)]">
-              Contexto muda tudo
+              Energia muda tudo
             </h2>
           </RevealOnScroll>
 
@@ -420,27 +421,27 @@ export default function Home() {
               <GlowCard glow="orange" className="rounded-2xl p-6 h-full glass-card card-hover-glow" style={{ borderColor: LOGO.orange.border }}>
                 <div className="flex items-center gap-2 mb-5">
                   <div className="w-2 h-2 rounded-full" style={{ background: LOGO.orange.hex }} />
-                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: LOGO.orange.text }}>Sem o Nexus</span>
+                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: LOGO.orange.text }}>Sem o Nucly</span>
                 </div>
                 <div className="space-y-3 text-sm text-[var(--foreground-muted)] leading-relaxed">
-                  <p>Você dorme mal três dias seguidos. Seu app de tarefas não liga. Sua agenda marca uma reunião complexa às 8h da manhã.</p>
-                  <p>Você abre o Google Calendar e o Todoist mas nenhum dos dois sabe do outro. Você abre o Notion para ver suas metas — e lembra que não abre há duas semanas.</p>
-                  <p className="italic" style={{ color: LOGO.orange.text, opacity: 0.7 }}>Resultado: mais energia gerenciando apps do que vivendo.</p>
+                  <p>Sexta-feira, 18h. Checklist da semana: 100% verde. Doze entregas, quatro reuniões por dia, inbox zerado.</p>
+                  <p>E você, vazio. Nenhum app percebeu que em cinco dias não houve UMA atividade que repusesse energia — porque nenhum deles mede isso. Sábado você apaga no sofá e chama de descanso.</p>
+                  <p className="italic" style={{ color: LOGO.orange.text, opacity: 0.7 }}>Resultado: produtividade que cobra juros.</p>
                 </div>
               </GlowCard>
             </RevealOnScroll>
 
-            {/* Com o Nexus — verde */}
+            {/* Com o Nucly — verde */}
             <RevealOnScroll revealClass="reveal-right">
               <GlowCard glow="green" className="rounded-2xl p-6 h-full card-hover-glow" style={{ background: LOGO.green.bg, border: `1px solid ${LOGO.green.border}` }}>
                 <div className="flex items-center gap-2 mb-5">
                   <div className="w-2 h-2 rounded-full" style={{ background: LOGO.green.hex }} />
-                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: LOGO.green.text }}>Com o Nexus</span>
+                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: LOGO.green.text }}>Com o Nucly</span>
                 </div>
                 <div className="space-y-3 text-sm text-[var(--foreground-muted)] leading-relaxed">
-                  <p>O Jarbas percebe pelo rastreio de hábitos que seu sono está ruim há três dias.</p>
-                  <p>Ele cruza com sua agenda, identifica a reunião complexa às 8h e sugere bloquear a manhã para recuperação. Automaticamente reordena sua lista de tarefas para focar só no que é inadiável.</p>
-                  <p className="font-medium" style={{ color: LOGO.green.text }}>Você acorda com um plano que já leva sua realidade em conta — sem ter feito nada.</p>
+                  <p>Quarta-feira, o Pulso acende: Recarga em 15%, Conexão zerada. O Jarbas manda no WhatsApp: "rapaz, você está gastando bem mais do que repõe".</p>
+                  <p>Você arrasta um post-it de Recarga pro quadro de quinta, agenda o jantar que vinha adiando — e o sistema conta os dois no balanço.</p>
+                  <p className="font-medium" style={{ color: LOGO.green.text }}>Sexta chega com a checklist verde E energia no azul. Isso é o que o Nucly mede.</p>
                 </div>
               </GlowCard>
             </RevealOnScroll>
@@ -484,6 +485,9 @@ export default function Home() {
                       <span className="text-4xl font-bold text-[var(--foreground)]">{plan.price}</span>
                       {plan.period && <span className="text-sm text-[var(--foreground-subtle)]">{plan.period}</span>}
                     </div>
+                    {plan.subPrice && (
+                      <p className="mt-1 text-[11px]" style={{ color: LOGO.green.text }}>{plan.subPrice}</p>
+                    )}
                     <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">{plan.description}</p>
 
                     <ul className="mt-6 space-y-2.5 flex-1">
@@ -527,7 +531,7 @@ export default function Home() {
               Perguntas frequentes
             </h2>
             <p className="text-center text-[var(--foreground-subtle)] mt-2 text-sm">
-              Tudo que você precisa saber sobre o Nexus.
+              Tudo que você precisa saber sobre o Nucly.
             </p>
           </RevealOnScroll>
           <div className="mt-8">
@@ -544,10 +548,10 @@ export default function Home() {
               <div className="max-w-lg">
                 <RevealOnScroll revealClass="reveal-left">
                   <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--foreground)]">
-                    Pronto para organizar sua vida em um contexto só?
+                    Pronto pra parar de gerenciar apps e começar a gerenciar energia?
                   </h2>
                   <p className="mt-4 text-[var(--foreground-muted)] leading-relaxed">
-                    Comece grátis. Sem cartão de crédito. Em menos de 5 minutos você tem sua estrutura de vida montada — e o Jarbas pronto para trabalhar.
+                    Comece grátis, sem cartão. Em 5 minutos: pilares montados, primeiro post-it no quadro — e o Jarbas pronto pra montar seu dia amanhã cedo.
                   </p>
                   <div className="mt-8 flex items-center gap-3">
                     <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">
@@ -572,7 +576,7 @@ export default function Home() {
                   <div className="animate-scroll-images flex flex-col gap-4">
                     {[...ctaImages, ...ctaImages].map((src, i) => (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img key={i} src={src} alt="Screenshot do Nexus" className="w-52 rounded-xl object-cover" style={{ border: "1px solid var(--border)" }} />
+                      <img key={i} src={src} alt="Screenshot do Nucly" className="w-52 rounded-xl object-cover" style={{ border: "1px solid var(--border)" }} />
                     ))}
                   </div>
                 </div>
@@ -580,7 +584,7 @@ export default function Home() {
                   <div className="animate-scroll-images flex flex-col gap-4" style={{ animationDelay: "-10s" }}>
                     {[...ctaImages, ...ctaImages].map((src, i) => (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img key={i} src={src} alt="Screenshot do Nexus" className="w-52 rounded-xl object-cover" style={{ border: "1px solid var(--border)" }} />
+                      <img key={i} src={src} alt="Screenshot do Nucly" className="w-52 rounded-xl object-cover" style={{ border: "1px solid var(--border)" }} />
                     ))}
                   </div>
                 </div>
@@ -593,13 +597,13 @@ export default function Home() {
       {/* ==================== FOOTER ==================== */}
       <footer className="relative z-10" style={{ borderTop: "1px solid var(--border-subtle)" }}>
         <div className="overflow-hidden px-4 pt-16 pb-4">
-          <div className="footer-brand select-none text-center">NEXUS</div>
+          <div className="footer-brand select-none text-center">NUCLY</div>
         </div>
 
         <div className="mx-auto max-w-7xl px-4 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6" style={{ borderTop: "1px solid var(--border-subtle)" }}>
           <div className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-horizontal.png" alt="Nexus" className="h-7 w-auto" />
+            <img src="/logo-horizontal.png" alt="Nucly" className="h-7 w-auto" />
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
@@ -618,7 +622,7 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="text-xs" style={{ color: "var(--foreground-subtle)" }}>© {new Date().getFullYear()} Nexus. Todos os direitos reservados.</p>
+          <p className="text-xs" style={{ color: "var(--foreground-subtle)" }}>© {new Date().getFullYear()} Nucly. Todos os direitos reservados.</p>
         </div>
       </footer>
     </>

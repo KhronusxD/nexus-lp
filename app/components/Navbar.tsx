@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-horizontal.png" alt="Nexus" className="h-8 w-auto" />
+          <img src="/logo-horizontal.png" alt="Nucly" className="h-8 w-auto" />
         </a>
 
         {/* Desktop Nav Links */}

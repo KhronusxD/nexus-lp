@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-const SITE_TITLE = "Nexus — O Sistema Operacional Pessoal";
+const SITE_TITLE = "Nucly — Sistema Operacional de Energia Pessoal";
 const SITE_DESCRIPTION =
   "Conecte hábitos, projetos e agenda em uma estrutura única — com Jarbas, seu agente de IA no app e no WhatsApp. Comece grátis, sem cartão.";
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
-  applicationName: "Nexus",
+  applicationName: "Nucly",
   keywords: [
     "produtividade",
     "sistema operacional pessoal",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Google Calendar",
     "Notion alternativa",
   ],
-  authors: [{ name: "Nexus" }],
+  authors: [{ name: "Nucly" }],
   icons: { icon: "/icon-192.png", apple: "/icon-192.png" },
   alternates: { canonical: SITE_URL },
   openGraph: {
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    siteName: "Nexus",
+    siteName: "Nucly",
     images: [
       {
         url: "/icon-192.png",
         width: 192,
         height: 192,
-        alt: "Nexus — O Sistema Operacional Pessoal",
+        alt: "Nucly — Sistema Operacional de Energia Pessoal",
       },
     ],
   },

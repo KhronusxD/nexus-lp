@@ -4,14 +4,14 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "O que exatamente é o Nexus?",
+    question: "O que exatamente é o Nucly?",
     answer:
-      "O Nexus é um Sistema Operacional Pessoal — não mais um app de produtividade isolado. Ele conecta todas as dimensões da sua vida (Pilares, Skills, Projetos, Hábitos e Agenda) em uma única estrutura coerente, onde cada ação do dia alimenta um propósito maior.",
+      "O Nucly é um sistema operacional de energia pessoal. Apps de produtividade medem quantas tarefas você riscou; o Nucly mede o que cada uma custou — e repôs — de você. O ciclo é simples: capture tudo que pesa na mente, prepare o dia com rituais recorrentes, execute no quadro de post-its e veja no Pulso, toda semana, se você repôs mais do que gastou. Pilares, projetos, hábitos, calendário e mapas visuais moram dentro desse ciclo.",
   },
   {
-    question: "Em que o Nexus é diferente do Notion, Todoist ou Google Calendar?",
+    question: "Em que o Nucly é diferente do Notion, Todoist ou Google Calendar?",
     answer:
-      "Essas ferramentas são ótimas isoladamente — mas nenhuma delas sabe que você está atrasado na sua meta de leitura, que uma reunião conflita com seu foco da tarde, ou que você dorme mal nas semanas em que ignora determinado hábito. O Nexus enxerga a pessoa inteira, não só a tarefa. E você não precisa abandonar o Google Calendar — o Nexus sincroniza com ele dos dois lados.",
+      "Essas ferramentas são ótimas isoladamente — mas nenhuma delas sabe que você está atrasado na sua meta de leitura, que uma reunião conflita com seu foco da tarde, ou que você dorme mal nas semanas em que ignora determinado hábito. O Nucly mede a energia, não só a tarefa: cada atividade concluída — inclusive hábitos — pesa como Recarga, Operação ou Conexão, e o Pulso mostra o balanço da semana. E você não precisa abandonar o Google Calendar — o Nucly sincroniza com ele dos dois lados.",
   },
   {
     question: "Como funciona o trial? Vocês cobram o cartão antes?",
@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "O WhatsApp é obrigatório? Como conecto?",
     answer:
-      "Não é obrigatório — o Nexus funciona inteiro no app. Mas se você assina o plano Nexus AI, em 30 segundos você pareia seu número e o Jarbas vira mais um contato no seu WhatsApp. Recebe resumo do dia, marca hábitos por mensagem, manda áudio que vira tarefa. Funciona com seu WhatsApp pessoal, sem precisar de chip dedicado.",
+      "Não é obrigatório — o Nucly funciona inteiro no app. Mas se você assina o plano Nexus AI, em 30 segundos você pareia seu número e o Jarbas vira mais um contato no seu WhatsApp. Recebe resumo do dia, marca hábitos por mensagem, manda áudio que vira tarefa. Funciona com seu WhatsApp pessoal, sem precisar de chip dedicado.",
   },
   {
     question: "Qual a diferença entre Sistema e Nexus AI?",
