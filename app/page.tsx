@@ -6,7 +6,7 @@ import GlowCard from "./components/GlowCard";
 const APP_URL = "https://nexus-lilac-iota.vercel.app";
 
 /* Os planos seguem o ciclo: Grátis = Capturar + Executar; Sistema = o ciclo
-   completo (Preparar + Equilibrar); Nexus AI = o Jarbas operando por você. */
+   completo (Preparar + Equilibrar); Nexus AI = o Jarvis operando por você. */
 const pricingPlans = [
   {
     name: "Grátis",
@@ -37,7 +37,7 @@ const pricingPlans = [
       "Vetores de energia + Pulso semanal",
       "Canvas infinito estilo Miro por projeto",
       "Notas, documentos e exportação (LGPD)",
-      "7 dias de Jarbas grátis pra experimentar",
+      "7 dias de Jarvis grátis pra experimentar",
     ],
     cta: "Começar com 7 dias grátis",
     href: `${APP_URL}/cadastro?plano=sistema`,
@@ -48,16 +48,16 @@ const pricingPlans = [
     price: "R$69,90",
     period: "/ mês",
     subPrice: "ou R$179,90/trimestre · R$599,90/ano",
-    description: "Tudo isso + o Jarbas operando por você.",
+    description: "Tudo isso + o Jarvis operando por você.",
     features: [
       "Tudo do plano Sistema",
-      "Jarbas permanente — no app e no seu WhatsApp",
+      "Jarvis permanente — no app e no seu WhatsApp",
       "\"Monta meu dia\" e balanço de energia por mensagem",
       "Capture por áudio (transcrição) e imagem",
       "Revisão semanal gerada por IA",
       "7 dias grátis — sem cobrança no início",
     ],
-    cta: "Desbloquear o Jarbas",
+    cta: "Desbloquear o Jarvis",
     href: `${APP_URL}/cadastro?plano=nexus-ai`,
     popular: true,
   },
@@ -70,7 +70,7 @@ const ctaImages = [
   "/prints/08-Projeto-Kanban.png",
   "/prints/13-Pilares.png",
   "/prints/15-Insights-Dashboard.png",
-  "/prints/17-Jarbas-IA-Chat.png",
+  "/prints/17-Jarvis-IA-Chat.png",
   "/prints/12-Notas-Editor.png",
 ];
 
@@ -138,7 +138,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="mt-5 max-w-2xl text-base md:text-lg text-[var(--foreground-muted)] animate-fade-in-up delay-200 leading-relaxed">
-              O Nucly é o sistema operacional de energia pessoal. Capture tudo que pesa na mente, prepare o dia com rituais recorrentes, execute no quadro de post-its — e veja, toda semana, se você repôs mais do que gastou. Com o Jarbas, o agente que monta seu dia por WhatsApp.
+              O Nucly é o sistema operacional de energia pessoal. Capture tudo que pesa na mente, prepare o dia com rituais recorrentes, execute no quadro de post-its — e veja, toda semana, se você repôs mais do que gastou. Com o Jarvis, o agente que monta seu dia por WhatsApp.
             </p>
 
             {/* CTA Buttons */}
@@ -324,7 +324,7 @@ export default function Home() {
               </GlowCard>
             </RevealOnScroll>
 
-            {/* Card 3: Jarbas (spans 2 rows) */}
+            {/* Card 3: Jarvis (spans 2 rows) */}
             <RevealOnScroll revealClass="reveal delay-200" className="md:row-span-2">
               <GlowCard glow="cyan" className="glass-card card-hover-glow rounded-2xl h-full">
                 <div className="p-6 flex flex-col h-full">
@@ -333,7 +333,7 @@ export default function Home() {
                       J
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[var(--foreground)] leading-none">Jarbas</h3>
+                      <h3 className="text-base font-semibold text-[var(--foreground)] leading-none">Jarvis</h3>
                       <p className="text-[10px] logo-gradient-text font-semibold">seu agente de IA</p>
                     </div>
                   </div>
@@ -343,7 +343,7 @@ export default function Home() {
 
                   <div className="mt-5 flex-1 flex flex-col gap-3">
                     {[
-                      { from: "user", text: "Jarbas, monta meu dia." },
+                      { from: "user", text: "Jarvis, monta meu dia." },
                       { from: "jarbas", text: "Mandei seus 3 rituais pro quadro: Rotina de trabalho, Treino e Leitura — checklist limpa. Bora. ✓" },
                       { from: "user", text: "Como está minha recarga essa semana?" },
                       { from: "jarbas", text: "Recarga 18%, Operação 71%. Rapaz, você gastou bem mais do que repôs — que tal um bloco de descanso amanhã cedo?" },
@@ -439,7 +439,7 @@ export default function Home() {
                   <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: LOGO.green.text }}>Com o Nucly</span>
                 </div>
                 <div className="space-y-3 text-sm text-[var(--foreground-muted)] leading-relaxed">
-                  <p>Quarta-feira, o Pulso acende: Recarga em 15%, Conexão zerada. O Jarbas manda no WhatsApp: "rapaz, você está gastando bem mais do que repõe".</p>
+                  <p>Quarta-feira, o Pulso acende: Recarga em 15%, Conexão zerada. O Jarvis manda no WhatsApp: "rapaz, você está gastando bem mais do que repõe".</p>
                   <p>Você arrasta um post-it de Recarga pro quadro de quinta, agenda o jantar que vinha adiando — e o sistema conta os dois no balanço.</p>
                   <p className="font-medium" style={{ color: LOGO.green.text }}>Sexta chega com a checklist verde E energia no azul. Isso é o que o Nucly mede.</p>
                 </div>
@@ -551,7 +551,7 @@ export default function Home() {
                     Pronto pra parar de gerenciar apps e começar a gerenciar energia?
                   </h2>
                   <p className="mt-4 text-[var(--foreground-muted)] leading-relaxed">
-                    Comece grátis, sem cartão. Em 5 minutos: pilares montados, primeiro post-it no quadro — e o Jarbas pronto pra montar seu dia amanhã cedo.
+                    Comece grátis, sem cartão. Em 5 minutos: pilares montados, primeiro post-it no quadro — e o Jarvis pronto pra montar seu dia amanhã cedo.
                   </p>
                   <div className="mt-8 flex items-center gap-3">
                     <a href={`${APP_URL}/login`} className="btn-primary-gradient text-white font-semibold px-6 h-11 rounded-lg inline-flex items-center gap-2 text-sm active:scale-95">

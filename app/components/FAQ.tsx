@@ -16,17 +16,17 @@ const faqs = [
   {
     question: "Como funciona o trial? Vocês cobram o cartão antes?",
     answer:
-      "Todos os planos pagos têm 7 dias grátis. No Sistema, esses 7 dias incluem acesso completo ao Jarbas (depois ele desliga, mas o resto do app continua funcionando no R$29,90/mês). No Nexus AI, são 7 dias sem cobrança com acesso completo a Jarbas + WhatsApp. Exigimos cartão no início pra você não perder o acesso quando o trial acabar — mas a primeira cobrança só acontece no 8º dia. Se cancelar antes, não é cobrado nada. No plano Grátis, não pedimos cartão.",
+      "Todos os planos pagos têm 7 dias grátis. No Sistema, esses 7 dias incluem acesso completo ao Jarvis (depois ele desliga, mas o resto do app continua funcionando no R$29,90/mês). No Nexus AI, são 7 dias sem cobrança com acesso completo a Jarvis + WhatsApp. Exigimos cartão no início pra você não perder o acesso quando o trial acabar — mas a primeira cobrança só acontece no 8º dia. Se cancelar antes, não é cobrado nada. No plano Grátis, não pedimos cartão.",
   },
   {
     question: "O WhatsApp é obrigatório? Como conecto?",
     answer:
-      "Não é obrigatório — o Nucly funciona inteiro no app. Mas se você assina o plano Nexus AI, em 30 segundos você pareia seu número e o Jarbas vira mais um contato no seu WhatsApp. Recebe resumo do dia, marca hábitos por mensagem, manda áudio que vira tarefa. Funciona com seu WhatsApp pessoal, sem precisar de chip dedicado.",
+      "Não é obrigatório — o Nucly funciona inteiro no app. Mas se você assina o plano Nexus AI, em 30 segundos você pareia seu número e o Jarvis vira mais um contato no seu WhatsApp. Recebe resumo do dia, marca hábitos por mensagem, manda áudio que vira tarefa. Funciona com seu WhatsApp pessoal, sem precisar de chip dedicado.",
   },
   {
     question: "Qual a diferença entre Sistema e Nexus AI?",
     answer:
-      "O Sistema (R$29,90/mês) dá acesso ilimitado a Pilares, Skills, Projetos, Hábitos, notas, mind maps, Google Calendar sync e exportação — tudo conectado, sem limites de quantidade. Você ainda ganha 7 dias grátis do Jarbas pra experimentar. O Nexus AI (R$69,90/mês, R$179,90/3 meses ou R$599,90/ano) inclui o Jarbas permanente + WhatsApp nativo + transcrição de áudio + análise de imagens + revisão semanal automática.",
+      "O Sistema (R$29,90/mês) dá acesso ilimitado a Pilares, Skills, Projetos, Hábitos, notas, mind maps, Google Calendar sync e exportação — tudo conectado, sem limites de quantidade. Você ainda ganha 7 dias grátis do Jarvis pra experimentar. O Nexus AI (R$69,90/mês, R$179,90/3 meses ou R$599,90/ano) inclui o Jarvis permanente + WhatsApp nativo + transcrição de áudio + análise de imagens + revisão semanal automática.",
   },
   {
     question: "Posso cancelar a qualquer momento?",
@@ -41,7 +41,7 @@ const faqs = [
   {
     question: "Vocês usam meus dados pra treinar IA?",
     answer:
-      "Não. Suas tarefas, notas e mensagens com o Jarbas nunca alimentam treinamento de modelos — nem nossos, nem de provedores externos. Usamos APIs com configuração explícita de no-training. Sua estrutura de vida é sua.",
+      "Não. Suas tarefas, notas e mensagens com o Jarvis nunca alimentam treinamento de modelos — nem nossos, nem de provedores externos. Usamos APIs com configuração explícita de no-training. Sua estrutura de vida é sua.",
   },
   {
     question: "Preciso migrar tudo de uma vez?",

@@ -56,12 +56,12 @@ export default function TermsPage() {
 
           <Section title="2. Descrição do serviço">
             <p>
-              O {APP_NAME} é uma plataforma de produtividade pessoal que integra gestão de hábitos, projetos, agenda e notas em um sistema único, com suporte de inteligência artificial através do assistente Jarbas. Os serviços são oferecidos nos seguintes planos:
+              O {APP_NAME} é uma plataforma de produtividade pessoal que integra gestão de hábitos, projetos, agenda e notas em um sistema único, com suporte de inteligência artificial através do assistente Jarvis. Os serviços são oferecidos nos seguintes planos:
             </p>
             <ul>
               <li><strong>Plano Grátis:</strong> acesso a funcionalidades básicas com limites definidos;</li>
-              <li><strong>Plano Sistema:</strong> acesso completo a recursos de produtividade, sem limites de criação, com trial de 7 dias do Jarbas;</li>
-              <li><strong>Plano Nexus AI:</strong> acesso a todas as funcionalidades, incluindo o Jarbas com acesso permanente e recursos avançados de IA.</li>
+              <li><strong>Plano Sistema:</strong> acesso completo a recursos de produtividade, sem limites de criação, com trial de 7 dias do Jarvis;</li>
+              <li><strong>Plano Nexus AI:</strong> acesso a todas as funcionalidades, incluindo o Jarvis com acesso permanente e recursos avançados de IA.</li>
             </ul>
             <p>
               Reservamo-nos o direito de modificar, suspender ou descontinuar qualquer funcionalidade do serviço, com aviso prévio razoável quando possível.
@@ -104,7 +104,7 @@ export default function TermsPage() {
             </Subsection>
             <Subsection title="5.2 Trial">
               <p>
-                Todos os planos pagos incluem um período trial gratuito de 7 dias. No Plano Sistema, o trial concede acesso completo ao assistente Jarbas — após o término, o Jarbas é suspenso automaticamente e o restante do plano segue ativo. No Plano Nexus AI, o trial concede acesso completo a todas as funcionalidades sem cobrança no primeiro período. Em ambos os casos, é possível cancelar a qualquer momento durante o trial sem ônus.
+                Todos os planos pagos incluem um período trial gratuito de 7 dias. No Plano Sistema, o trial concede acesso completo ao assistente Jarvis — após o término, o Jarvis é suspenso automaticamente e o restante do plano segue ativo. No Plano Nexus AI, o trial concede acesso completo a todas as funcionalidades sem cobrança no primeiro período. Em ambos os casos, é possível cancelar a qualquer momento durante o trial sem ônus.
               </p>
             </Subsection>
             <Subsection title="5.3 Cancelamento">
@@ -137,13 +137,13 @@ export default function TermsPage() {
             </Subsection>
           </Section>
 
-          <Section title="7. Inteligência Artificial (Jarbas)">
+          <Section title="7. Inteligência Artificial (Jarvis)">
             <p>
-              O assistente Jarbas utiliza modelos de IA de terceiros para processar seu conteúdo e gerar respostas personalizadas. Ao usar o Jarbas, você compreende que:
+              O assistente Jarvis utiliza modelos de IA de terceiros para processar seu conteúdo e gerar respostas personalizadas. Ao usar o Jarvis, você compreende que:
             </p>
             <ul>
               <li>As respostas geradas por IA são sugestões e não substituem julgamento profissional (médico, jurídico, financeiro, etc.);</li>
-              <li>Não garantimos a precisão absoluta das respostas do Jarbas;</li>
+              <li>Não garantimos a precisão absoluta das respostas do Jarvis;</li>
               <li>Seu conteúdo pode ser processado por APIs de IA de terceiros conforme descrito em nossa Política de Privacidade;</li>
               <li>Você é responsável pelo uso que faz das sugestões geradas pela IA.</li>
             </ul>

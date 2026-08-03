@@ -25,7 +25,7 @@ const AI_PRICING: Record<Period, {
     price: "R$69,90",
     period: "/ mês",
     plano: "nexus_ai_mensal",
-    cta: "Desbloquear o Jarbas",
+    cta: "Desbloquear o Jarvis",
   },
   trimestral: {
     price: "R$179,90",
@@ -60,12 +60,12 @@ const SISTEMA_FEATURES = [
   "Notas, mind maps e modo Deep Work",
   "Relatórios e exportação (LGPD)",
   "Google Calendar sync",
-  "7 dias de Jarbas IA grátis (depois R$69,90 ou volta ao Sistema)",
+  "7 dias de Jarvis IA grátis (depois R$69,90 ou volta ao Sistema)",
 ];
 
 const AI_FEATURES = [
   "Tudo do plano Sistema",
-  "Jarbas — agente de IA permanente",
+  "Jarvis — agente de IA permanente",
   "Nexus no seu WhatsApp (envio e resumo diário)",
   "Transcrição de áudio e análise de imagens",
   "Revisão semanal gerada por IA",
@@ -130,7 +130,7 @@ export default function PricingSection() {
                 <span className="text-4xl font-bold text-[var(--foreground)]">R$29,90</span>
                 <span className="text-sm text-[var(--foreground-subtle)]">/ mês</span>
               </div>
-              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">Sistema completo + 7 dias de Jarbas grátis.</p>
+              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">Sistema completo + 7 dias de Jarvis grátis.</p>
 
               <ul className="mt-6 space-y-2.5 flex-1">
                 {SISTEMA_FEATURES.map((f) => (
@@ -201,7 +201,7 @@ export default function PricingSection() {
                   equivalente a <span className="font-semibold text-[var(--foreground-muted)]">{ai.monthlyEquivalent}</span>
                 </p>
               )}
-              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">O sistema completo + Jarbas permanente + WhatsApp.</p>
+              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">O sistema completo + Jarvis permanente + WhatsApp.</p>
 
               <ul className="mt-6 space-y-2.5 flex-1">
                 {AI_FEATURES.map((f, fi) => {

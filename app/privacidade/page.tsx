@@ -82,7 +82,7 @@ export default function PrivacyPage() {
               <li>Fornecer e melhorar as funcionalidades do {APP_NAME};</li>
               <li>Processar pagamentos e gerenciar assinaturas (via Stripe);</li>
               <li>Enviar notificações relevantes sobre sua conta ou serviço;</li>
-              <li>Operar o assistente de IA Jarbas, processando seu conteúdo para gerar insights personalizados;</li>
+              <li>Operar o assistente de IA Jarvis, processando seu conteúdo para gerar insights personalizados;</li>
               <li>Cumprir obrigações legais e resolver disputas;</li>
               <li>Detectar e prevenir fraudes e abusos.</li>
             </ul>

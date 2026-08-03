@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 const SITE_TITLE = "Nucly — Sistema Operacional de Energia Pessoal";
 const SITE_DESCRIPTION =
-  "Conecte hábitos, projetos e agenda em uma estrutura única — com Jarbas, seu agente de IA no app e no WhatsApp. Comece grátis, sem cartão.";
+  "Conecte hábitos, projetos e agenda em uma estrutura única — com Jarvis, seu agente de IA no app e no WhatsApp. Comece grátis, sem cartão.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "produtividade",
     "sistema operacional pessoal",
     "agente IA",
-    "Jarbas",
+    "Jarvis",
     "WhatsApp",
     "hábitos",
     "projetos",
