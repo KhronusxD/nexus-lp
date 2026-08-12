@@ -14,24 +14,24 @@ const faqs = [
       "Essas ferramentas são ótimas isoladamente — mas nenhuma delas sabe que você está atrasado na sua meta de leitura, que uma reunião conflita com seu foco da tarde, ou que você dorme mal nas semanas em que ignora determinado hábito. O Nucly mede a energia, não só a tarefa: cada atividade concluída — inclusive hábitos — pesa como Recarga, Operação ou Conexão, e o Pulso mostra o balanço da semana. E você não precisa abandonar o Google Calendar — o Nucly sincroniza com ele dos dois lados.",
   },
   {
-    question: "Como funciona o trial? Vocês cobram o cartão antes?",
+    question: "Como funciona o trial? Precisa de cartão?",
     answer:
-      "Todos os planos pagos têm 7 dias grátis. No Sistema, esses 7 dias incluem acesso completo ao Jarvis (depois ele desliga, mas o resto do app continua funcionando no R$29,90/mês). No Nexus AI, são 7 dias sem cobrança com acesso completo a Jarvis + WhatsApp. Exigimos cartão no início pra você não perder o acesso quando o trial acabar — mas a primeira cobrança só acontece no 8º dia. Se cancelar antes, não é cobrado nada. No plano Grátis, não pedimos cartão.",
+      "Não pedimos cartão pra testar. Ao escolher Sistema ou Nexus AI, você entra direto com 7 dias de acesso completo — Jarvis, WhatsApp, tudo — sem informar nenhum dado de pagamento. No fim dos 7 dias, se você não assinar, a conta volta pro plano Grátis sem cobrança nenhuma (seus dados ficam salvos). Quando decidir assinar, paga do jeito que preferir: cartão, PIX ou boleto.",
   },
   {
     question: "O WhatsApp é obrigatório? Como conecto?",
     answer:
-      "Não é obrigatório — o Nucly funciona inteiro no app. Mas se você assina o plano Nexus AI, em 30 segundos você pareia seu número e o Jarvis vira mais um contato no seu WhatsApp. Recebe resumo do dia, marca hábitos por mensagem, manda áudio que vira tarefa. Funciona com seu WhatsApp pessoal, sem precisar de chip dedicado.",
+      "Não é obrigatório — o Nucly funciona inteiro no app. Mas nos planos Sistema e Nexus AI, em 30 segundos você pareia seu número e o Jarvis vira mais um contato no seu WhatsApp: recebe resumo do dia, marca hábitos por mensagem, cria eventos por texto. No Nexus AI, você também pode mandar áudio (que vira tarefa) e imagem. Funciona com seu WhatsApp pessoal, sem chip dedicado.",
   },
   {
     question: "Qual a diferença entre Sistema e Nexus AI?",
     answer:
-      "O Sistema (R$29,90/mês) dá acesso ilimitado a Pilares, Skills, Projetos, Hábitos, notas, mind maps, Google Calendar sync e exportação — tudo conectado, sem limites de quantidade. Você ainda ganha 7 dias grátis do Jarvis pra experimentar. O Nexus AI (R$69,90/mês, R$179,90/3 meses ou R$599,90/ano) inclui o Jarvis permanente + WhatsApp nativo + transcrição de áudio + análise de imagens + revisão semanal automática.",
+      "Os dois já vêm com o Jarvis e o WhatsApp — a diferença é volume e escala. O Sistema (R$29,90/mês) dá Pilares, Skills e Hábitos ilimitados, até 3 projetos, e o Jarvis com 300 mensagens por mês. O Nexus AI (R$49,90/mês ou R$499,90/ano) libera projetos e mapas mentais ilimitados, sobe o Jarvis pra 800 mensagens/mês e adiciona áudio e imagem no WhatsApp, além da revisão semanal gerada por IA.",
   },
   {
     question: "Posso cancelar a qualquer momento?",
     answer:
-      "Sim, em 2 cliques dentro de Configurações → Assinatura. Sem multa, sem ligação. Você mantém acesso até o fim do período pago. Se voltar pro plano gratuito, seus dados não somem — só voltam os limites do plano (3 pilares, 3 projetos, etc.), e os itens excedentes ficam arquivados.",
+      "Sim, em 2 cliques dentro de Configurações → Plano. Sem multa, sem ligação. Você mantém acesso até o fim do período pago. Se voltar pro plano gratuito, seus dados não somem — só voltam os limites do plano (3 pilares, 1 projeto, etc.), e os itens excedentes ficam arquivados.",
   },
   {
     question: "Meus dados são meus? Como exporto?",
@@ -49,9 +49,9 @@ const faqs = [
       "Não. Você começa pela estrutura que faz mais sentido agora — pode ser seus pilares de vida, seus projetos ativos ou seus hábitos — e vai expandindo. O onboarding de 5 minutos te guia. O Google Calendar sync ajuda quem já tem agenda cheia.",
   },
   {
-    question: "Tem desconto pra anual ou trimestral?",
+    question: "Tem desconto pra anual?",
     answer:
-      "Sim, no plano Nexus AI. Trimestral sai por R$179,90 (≈14% de desconto sobre o mensal, equivalente a R$59,97/mês). Anual sai por R$599,90 (≈28% de desconto, equivalente a R$49,99/mês). Todos com 7 dias de trial grátis. O plano Sistema é só mensal por enquanto.",
+      "Sim, no plano Nexus AI. O anual sai por R$499,90 — pague 10 meses, leve 12 (equivale a ~R$41,66/mês). Os 7 dias de trial grátis valem igual. O plano Sistema é só mensal por enquanto.",
   },
 ];
 

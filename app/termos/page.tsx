@@ -60,8 +60,8 @@ export default function TermsPage() {
             </p>
             <ul>
               <li><strong>Plano Grátis:</strong> acesso a funcionalidades básicas com limites definidos;</li>
-              <li><strong>Plano Sistema:</strong> acesso completo a recursos de produtividade, sem limites de criação, com trial de 7 dias do Jarvis;</li>
-              <li><strong>Plano Nexus AI:</strong> acesso a todas as funcionalidades, incluindo o Jarvis com acesso permanente e recursos avançados de IA.</li>
+              <li><strong>Plano Sistema:</strong> recursos de produtividade sem limites de criação (exceto projetos), com o assistente Jarvis e WhatsApp incluídos, sujeitos a cota mensal de mensagens;</li>
+              <li><strong>Plano Nexus AI:</strong> acesso a todas as funcionalidades, incluindo projetos ilimitados, o Jarvis com cota mensal ampliada e recursos avançados de IA (áudio e imagem no WhatsApp).</li>
             </ul>
             <p>
               Reservamo-nos o direito de modificar, suspender ou descontinuar qualquer funcionalidade do serviço, com aviso prévio razoável quando possível.
@@ -99,12 +99,12 @@ export default function TermsPage() {
           <Section title="5. Planos, pagamentos e cobranças">
             <Subsection title="5.1 Assinaturas">
               <p>
-                Os planos pagos são cobrados de forma recorrente (mensal ou anual) via cartão de crédito, processados pelo Stripe. Ao assinar um plano pago, você autoriza a cobrança automática nos ciclos acordados.
+                Os planos pagos são cobrados de forma recorrente (mensal ou anual) via cartão de crédito, PIX ou boleto, processados pela AbacatePay. Ao assinar um plano pago, você autoriza a cobrança nos ciclos acordados.
               </p>
             </Subsection>
             <Subsection title="5.2 Trial">
               <p>
-                Todos os planos pagos incluem um período trial gratuito de 7 dias. No Plano Sistema, o trial concede acesso completo ao assistente Jarvis — após o término, o Jarvis é suspenso automaticamente e o restante do plano segue ativo. No Plano Nexus AI, o trial concede acesso completo a todas as funcionalidades sem cobrança no primeiro período. Em ambos os casos, é possível cancelar a qualquer momento durante o trial sem ônus.
+                Ao escolher um plano pago (Sistema ou Nexus AI), você recebe 7 dias de acesso completo às funcionalidades do plano, sem necessidade de informar dados de pagamento e sem qualquer cobrança durante esse período. Ao término dos 7 dias, caso você não efetue a assinatura, a conta retorna automaticamente ao Plano Grátis, com seus dados preservados. Nenhuma cobrança é feita sem que você conclua uma assinatura de forma ativa.
               </p>
             </Subsection>
             <Subsection title="5.3 Cancelamento">

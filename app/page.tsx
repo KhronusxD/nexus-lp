@@ -3,22 +3,24 @@ import FAQ from "./components/FAQ";
 import RevealOnScroll from "./components/RevealOnScroll";
 import GlowCard from "./components/GlowCard";
 
-const APP_URL = "https://nexus-lilac-iota.vercel.app";
+const APP_URL = "https://app.nucly.com.br";
 
 /* Os planos seguem o ciclo: Grátis = Capturar + Executar; Sistema = o ciclo
-   completo (Preparar + Equilibrar); Nexus AI = o Jarvis operando por você. */
+   completo com o Jarvis no seu WhatsApp; Nexus AI = o Jarvis operando por você
+   sem limite de projeto e com áudio/imagem. */
 const pricingPlans = [
   {
     name: "Grátis",
     price: "R$0",
     period: "",
-    subPrice: "",
+    subPrice: "pra sempre, sem cartão",
     description: "Capture e execute — sinta o sistema.",
     features: [
       "Captura rápida (⌘K, celular, atalho)",
       "Quadro de post-its do dia",
       "Agenda integrada + Google Calendar",
-      "Até 3 Pilares, 3 Projetos e 3 hábitos",
+      "3 Pilares, 3 Skills e 3 hábitos",
+      "1 projeto com mapa mental",
       "Histórico de 7 dias",
     ],
     cta: "Criar conta grátis",
@@ -29,15 +31,15 @@ const pricingPlans = [
     name: "Sistema",
     price: "R$29,90",
     period: "/ mês",
-    subPrice: "",
-    description: "O ciclo completo: preparar e equilibrar.",
+    subPrice: "7 dias grátis, sem cartão",
+    description: "O ciclo completo — com o Jarvis no seu WhatsApp.",
     features: [
-      "Pilares, Projetos, Hábitos e Skills ilimitados",
+      "Pilares, Skills e Hábitos ilimitados",
+      "Até 3 projetos com canvas infinito estilo Miro",
       "Planning com rituais recorrentes — monte o dia em um clique",
       "Vetores de energia + Pulso semanal",
-      "Canvas infinito estilo Miro por projeto",
+      "Jarvis no app e no WhatsApp — 300 mensagens/mês",
       "Notas, documentos e exportação (LGPD)",
-      "7 dias de Jarvis grátis pra experimentar",
     ],
     cta: "Começar com 7 dias grátis",
     href: `${APP_URL}/cadastro?plano=sistema`,
@@ -45,17 +47,17 @@ const pricingPlans = [
   },
   {
     name: "Nexus AI",
-    price: "R$69,90",
+    price: "R$49,90",
     period: "/ mês",
-    subPrice: "ou R$179,90/trimestre · R$599,90/ano",
-    description: "Tudo isso + o Jarvis operando por você.",
+    subPrice: "ou R$499,90/ano · 7 dias grátis, sem cartão",
+    description: "Tudo isso + o Jarvis operando por você, sem limite.",
     features: [
       "Tudo do plano Sistema",
-      "Jarvis permanente — no app e no seu WhatsApp",
+      "Projetos e mapas mentais ilimitados",
+      "Jarvis — 800 mensagens/mês",
+      "WhatsApp com áudio (transcrição) e imagem",
       "\"Monta meu dia\" e balanço de energia por mensagem",
-      "Capture por áudio (transcrição) e imagem",
       "Revisão semanal gerada por IA",
-      "7 dias grátis — sem cobrança no início",
     ],
     cta: "Desbloquear o Jarvis",
     href: `${APP_URL}/cadastro?plano=nexus-ai`,
