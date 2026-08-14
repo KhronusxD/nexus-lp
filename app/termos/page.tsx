@@ -7,9 +7,10 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "22 de março de 2026";
-const CONTACT_EMAIL = "suporte@nexus.so";
-const APP_NAME = "Nexus";
-const COMPANY = "Nexus";
+const CONTACT_EMAIL = "contato@nucly.com.br";
+const APP_NAME = "Nucly";
+const COMPANY = "ER Marketing";
+const COMPANY_CNPJ = "41.079.306/0001-62";
 
 export default function TermsPage() {
   return (
@@ -50,7 +51,7 @@ export default function TermsPage() {
               Se não concordar com algum destes termos, não utilize o serviço.
             </p>
             <p>
-              Estes termos constituem um contrato legal entre você e <strong>{COMPANY}</strong>. Reservamo-nos o direito de atualizar estes termos a qualquer momento, com notificação prévia conforme descrito na seção 13.
+              Estes termos constituem um contrato legal entre você e <strong>{COMPANY}</strong>, inscrita no CNPJ sob o nº {COMPANY_CNPJ}. Reservamo-nos o direito de atualizar estes termos a qualquer momento, com notificação prévia conforme descrito na seção 13.
             </p>
           </Section>
 

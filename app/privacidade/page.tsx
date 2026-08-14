@@ -7,9 +7,10 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "22 de março de 2026";
-const CONTACT_EMAIL = "privacidade@nexus.so";
-const APP_NAME = "Nexus";
-const COMPANY = "Nexus";
+const CONTACT_EMAIL = "contato@nucly.com.br";
+const APP_NAME = "Nucly";
+const COMPANY = "ER Marketing";
+const COMPANY_CNPJ = "41.079.306/0001-62";
 
 export default function PrivacyPage() {
   return (
@@ -45,7 +46,7 @@ export default function PrivacyPage() {
 
           <Section title="1. Quem somos">
             <p>
-              O <strong>{APP_NAME}</strong> é uma plataforma de produtividade pessoal desenvolvida e operada por <strong>{COMPANY}</strong>.
+              O <strong>{APP_NAME}</strong> é uma plataforma de produtividade pessoal desenvolvida e operada por <strong>{COMPANY}</strong>, inscrita no CNPJ sob o nº {COMPANY_CNPJ}, que atua como controladora dos dados pessoais tratados nos termos desta política.
               Nesta política, "nós", "nosso" ou "{APP_NAME}" referem-se à empresa. "Você" ou "usuário" refere-se a qualquer pessoa que acesse ou utilize nossos serviços.
             </p>
             <p>
