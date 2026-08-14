@@ -100,7 +100,7 @@ export default function TermsPage() {
           <Section title="5. Planos, pagamentos e cobranças">
             <Subsection title="5.1 Assinaturas">
               <p>
-                Os planos pagos são cobrados de forma recorrente (mensal ou anual) via cartão de crédito, PIX ou boleto, processados pela AbacatePay. Ao assinar um plano pago, você autoriza a cobrança nos ciclos acordados.
+                Os planos pagos são cobrados de forma recorrente (mensal ou anual) via cartão de crédito ou PIX, processados pela AbacatePay. Ao assinar um plano pago, você autoriza a cobrança nos ciclos acordados.
               </p>
             </Subsection>
             <Subsection title="5.2 Trial">

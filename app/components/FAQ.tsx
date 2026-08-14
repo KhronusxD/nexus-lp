@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "Como funciona o trial? Precisa de cartão?",
     answer:
-      "Não pedimos cartão pra testar. Ao escolher Sistema ou Nexus AI, você entra direto com 7 dias de acesso completo — Jarvis, WhatsApp, tudo — sem informar nenhum dado de pagamento. No fim dos 7 dias, se você não assinar, a conta volta pro plano Grátis sem cobrança nenhuma (seus dados ficam salvos). Quando decidir assinar, paga do jeito que preferir: cartão, PIX ou boleto.",
+      "Não pedimos cartão pra testar. Ao escolher Sistema ou Nexus AI, você entra direto com 7 dias de acesso completo — Jarvis, WhatsApp, tudo — sem informar nenhum dado de pagamento. No fim dos 7 dias, se você não assinar, a conta volta pro plano Grátis sem cobrança nenhuma (seus dados ficam salvos). Quando decidir assinar, paga do jeito que preferir: cartão ou PIX.",
   },
   {
     question: "O WhatsApp é obrigatório? Como conecto?",
