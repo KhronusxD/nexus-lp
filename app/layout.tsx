@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     siteName: "Nucly",
     images: [
       {
-        url: "/icon-192.png",
-        width: 192,
-        height: 192,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "Nucly — Sistema Operacional de Energia Pessoal",
       },
     ],
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/icon-192.png"],
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
