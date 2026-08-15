@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "22 de março de 2026";
-const CONTACT_EMAIL = "contato@nucly.com.br";
+const CONTACT_EMAIL = "ola@nucly.com.br";
 const APP_NAME = "Nucly";
 const COMPANY = "ER Marketing";
 const COMPANY_CNPJ = "41.079.306/0001-62";

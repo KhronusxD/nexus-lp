@@ -565,7 +565,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </a>
-                    <a href="mailto:contato@nucly.com.br" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors flex items-center gap-1">
+                    <a href="mailto:ola@nucly.com.br" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors flex items-center gap-1">
                       Falar com a equipe
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -630,7 +630,7 @@ export default function Home() {
           <div className="text-center md:text-right">
             <p className="text-xs" style={{ color: "var(--foreground-subtle)" }}>© {new Date().getFullYear()} Nucly. Todos os direitos reservados.</p>
             <p className="text-[11px] mt-1" style={{ color: "var(--foreground-subtle)" }}>
-              ER Marketing · CNPJ 41.079.306/0001-62 · <a href="mailto:contato@nucly.com.br" className="footer-link">contato@nucly.com.br</a>
+              ER Marketing · CNPJ 41.079.306/0001-62 · <a href="mailto:ola@nucly.com.br" className="footer-link">ola@nucly.com.br</a>
             </p>
           </div>
         </div>
