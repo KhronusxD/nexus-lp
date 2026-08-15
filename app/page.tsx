@@ -65,15 +65,18 @@ const pricingPlans = [
   },
 ];
 
+/* Nomes de arquivo em minúsculo de propósito: o build da Vercel roda em Linux,
+   que diferencia maiúscula de minúscula. O print veio como "Habilidades.png" e
+   funcionaria no Mac, mas quebraria só em produção. */
 const ctaImages = [
-  "/prints/01-Calendario-Mensal.png",
-  "/prints/05-Habitos.png",
-  "/prints/07-Projetos.png",
-  "/prints/08-Projeto-Kanban.png",
-  "/prints/13-Pilares.png",
-  "/prints/15-Insights-Dashboard.png",
-  "/prints/17-Jarvis-IA-Chat.png",
-  "/prints/12-Notas-Editor.png",
+  "/prints/hoje.png",
+  "/prints/fluxo.png",
+  "/prints/calendario.png",
+  "/prints/mapas.png",
+  "/prints/pilares.png",
+  "/prints/habilidades.png",
+  "/prints/notas.png",
+  "/prints/pulso.png",
 ];
 
 // Logo colors — no purple
@@ -189,8 +192,8 @@ export default function Home() {
                 </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/prints/hero-dashboard.png"
-                  alt="Preview do Nucly"
+                  src="/prints/pulso-jarvis.png"
+                  alt="Nucly: painel Pulso com o balanço de energia, e o Jarvis entregando o briefing do dia"
                   className="w-full"
                   loading="lazy"
                 />
