@@ -16,17 +16,17 @@ const faqs = [
   {
     question: "Como funciona o trial? Precisa de cartão?",
     answer:
-      "Não pedimos cartão pra testar. Ao escolher Sistema ou Nexus AI, você entra direto com 7 dias de acesso completo — Jarvis, WhatsApp, tudo — sem informar nenhum dado de pagamento. No fim dos 7 dias, se você não assinar, a conta volta pro plano Grátis sem cobrança nenhuma (seus dados ficam salvos). Quando decidir assinar, paga do jeito que preferir: cartão ou PIX.",
+      "Não pedimos cartão pra testar. Ao escolher Sistema ou Nucly AI, você entra direto com 7 dias de acesso completo — Jarvis, WhatsApp, tudo — sem informar nenhum dado de pagamento. No fim dos 7 dias, se você não assinar, a conta volta pro plano Grátis sem cobrança nenhuma (seus dados ficam salvos). Quando decidir assinar, paga do jeito que preferir: cartão ou PIX.",
   },
   {
     question: "O WhatsApp é obrigatório? Como conecto?",
     answer:
-      "Não é obrigatório — o Nucly funciona inteiro no app. Mas nos planos Sistema e Nexus AI, em 30 segundos você pareia seu número e o Jarvis vira mais um contato no seu WhatsApp: recebe resumo do dia, marca hábitos por mensagem, cria eventos por texto. No Nexus AI, você também pode mandar áudio (que vira tarefa) e imagem. Funciona com seu WhatsApp pessoal, sem chip dedicado.",
+      "Não é obrigatório — o Nucly funciona inteiro no app. Mas nos planos Sistema e Nucly AI, em 30 segundos você pareia seu número e o Jarvis vira mais um contato no seu WhatsApp: recebe resumo do dia, marca hábitos por mensagem, cria eventos por texto. No Nucly AI, você também pode mandar áudio (que vira tarefa) e imagem. Funciona com seu WhatsApp pessoal, sem chip dedicado.",
   },
   {
-    question: "Qual a diferença entre Sistema e Nexus AI?",
+    question: "Qual a diferença entre Sistema e Nucly AI?",
     answer:
-      "Os dois já vêm com o Jarvis e o WhatsApp — a diferença é volume e escala. O Sistema (R$29,90/mês) dá Pilares, Skills e Hábitos ilimitados, até 3 projetos, e o Jarvis com 300 mensagens por mês. O Nexus AI (R$49,90/mês ou R$499,90/ano) libera projetos e mapas mentais ilimitados, sobe o Jarvis pra 800 mensagens/mês e adiciona áudio e imagem no WhatsApp, além da revisão semanal gerada por IA.",
+      "Os dois já vêm com o Jarvis e o WhatsApp — a diferença é volume e escala. O Sistema (R$29,90/mês) dá Pilares, Skills e Hábitos ilimitados, até 3 projetos, e o Jarvis com 300 mensagens por mês. O Nucly AI (R$49,90/mês ou R$499,90/ano) libera projetos e mapas mentais ilimitados, sobe o Jarvis pra 800 mensagens/mês e adiciona áudio e imagem no WhatsApp, além da revisão semanal gerada por IA.",
   },
   {
     question: "Posso cancelar a qualquer momento?",
@@ -51,7 +51,7 @@ const faqs = [
   {
     question: "Tem desconto pra anual?",
     answer:
-      "Sim, no plano Nexus AI. O anual sai por R$499,90 — pague 10 meses, leve 12 (equivale a ~R$41,66/mês). Os 7 dias de trial grátis valem igual. O plano Sistema é só mensal por enquanto.",
+      "Sim, no plano Nucly AI. O anual sai por R$499,90 — pague 10 meses, leve 12 (equivale a ~R$41,66/mês). Os 7 dias de trial grátis valem igual. O plano Sistema é só mensal por enquanto.",
   },
 ];
 

@@ -66,7 +66,7 @@ const SISTEMA_FEATURES = [
 const AI_FEATURES = [
   "Tudo do plano Sistema",
   "Jarvis — agente de IA permanente",
-  "Nexus no seu WhatsApp (envio e resumo diário)",
+  "Nucly no seu WhatsApp (envio e resumo diário)",
   "Transcrição de áudio e análise de imagens",
   "Revisão semanal gerada por IA",
   "Comandos em linguagem natural",
@@ -97,7 +97,7 @@ export default function PricingSection() {
               <div className="mt-2 flex items-baseline gap-1">
                 <span className="text-4xl font-bold text-[var(--foreground)]">R$0</span>
               </div>
-              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">Para experimentar a estrutura do Nexus.</p>
+              <p className="mt-1.5 text-sm text-[var(--foreground-subtle)]">Para experimentar a estrutura do Nucly.</p>
 
               <ul className="mt-6 space-y-2.5 flex-1">
                 {FREE_FEATURES.map((f) => (
@@ -154,7 +154,7 @@ export default function PricingSection() {
           </div>
         </RevealOnScroll>
 
-        {/* ── Nexus AI (com toggle) ────────── */}
+        {/* ── Nucly AI (com toggle) ────────── */}
         <RevealOnScroll revealClass="reveal delay-300">
           <div className="neon-border-ring rounded-2xl h-full neon-border-active">
             <GlowCard
@@ -176,7 +176,7 @@ export default function PricingSection() {
                 )}
               </div>
 
-              <div className="text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-widest">Nexus AI</div>
+              <div className="text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-widest">Nucly AI</div>
 
               {/* Period toggle */}
               <div className="mt-3 inline-flex rounded-lg p-0.5 self-start" style={{ background: "var(--surface-elevated)", border: "1px solid var(--border)" }}>

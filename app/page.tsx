@@ -6,7 +6,7 @@ import GlowCard from "./components/GlowCard";
 const APP_URL = "https://app.nucly.com.br";
 
 /* Os planos seguem o ciclo: Grátis = Capturar + Executar; Sistema = o ciclo
-   completo com o Jarvis no seu WhatsApp; Nexus AI = o Jarvis operando por você
+   completo com o Jarvis no seu WhatsApp; Nucly AI = o Jarvis operando por você
    sem limite de projeto e com áudio/imagem. */
 const pricingPlans = [
   {
@@ -46,7 +46,7 @@ const pricingPlans = [
     popular: false,
   },
   {
-    name: "Nexus AI",
+    name: "Nucly AI",
     price: "R$49,90",
     period: "/ mês",
     subPrice: "ou R$499,90/ano · 7 dias grátis, sem cartão",
