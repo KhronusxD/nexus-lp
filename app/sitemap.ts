@@ -5,7 +5,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
     { url: `${SITE_URL}/`,            lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${SITE_URL}/privacidade`, lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
-    { url: `${SITE_URL}/termos`,      lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
+    // Privacidade e termos moram no app (app.nucly.com.br) — ver next.config.ts.
   ];
 }

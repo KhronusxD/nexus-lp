@@ -618,8 +618,8 @@ export default function Home() {
               { label: "Blog",          href: "#" },
               { label: "Documentação",  href: "#" },
               { label: "Changelog",     href: "#" },
-              { label: "Privacidade",   href: "/privacidade" },
-              { label: "Termos",        href: "/termos" },
+              { label: "Privacidade",   href: `${APP_URL}/privacidade` },
+              { label: "Termos",        href: `${APP_URL}/termos` },
             ].map((link) => (
               <a key={link.label} href={link.href} className="footer-link text-xs">
                 {link.label}
