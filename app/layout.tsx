@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "./config";
+import { AvisoCookies } from "./components/AvisoCookies";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,6 +78,7 @@ export default function RootLayout({
         {/* Ambient gradient background — cobre todas as páginas (home, termos, privacidade) */}
         <div className="nexus-ambient" aria-hidden="true" />
         {children}
+        <AvisoCookies />
       </body>
     </html>
   );
