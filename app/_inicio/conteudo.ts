@@ -130,7 +130,7 @@ export const PLANOS = [
 ];
 
 export const PERGUNTAS: { p: string; r: string }[] = [
-  { p: "Preciso de cartão pra testar?", r: "Não. Os 7 dias são livres, com tudo do plano escolhido liberado — Jarvis e WhatsApp inclusos. Se você não assinar, a conta volta pro plano Grátis sozinha e nada é cobrado. Seus dados ficam salvos." },
+  { p: "Preciso de cartão pra testar?", r: "Não. Os 7 dias são livres, com tudo do plano escolhido liberado — Jarvis e WhatsApp inclusos (no teste, o Jarvis responde até 100 mensagens). Se você não assinar, a conta volta pro plano Grátis sozinha e nada é cobrado. Seus dados ficam salvos." },
   { p: "O WhatsApp é obrigatório?", r: "Não, o Nucly funciona inteiro no app. Nos planos pagos você conecta seu número em 30 segundos e o Jarvis vira mais um contato no seu WhatsApp — sem chip extra e sem instalar nada." },
   { p: "Qual a diferença entre Sistema e Nucly AI?", r: "Os dois têm o Jarvis no app e no WhatsApp, com resumo do dia, lembretes e resumo da semana. O Nucly AI libera projetos ilimitados, sobe o Jarvis de 300 pra 800 mensagens por mês e aceita áudio (até 20 min por mês, somados) e foto no WhatsApp." },
   { p: "Funciona no celular?", r: "Sim. O Nucly abre no navegador de qualquer celular e dá pra adicionar à tela inicial — ele vira app, sem loja. E com o WhatsApp conectado, muita coisa você resolve sem nem abrir." },
