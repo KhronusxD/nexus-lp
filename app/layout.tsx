@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-const SITE_TITLE = "Nucly — Sistema Operacional de Energia Pessoal";
+const SITE_TITLE = "Nucly — Sua vida inteira num app só, com o Jarvis no WhatsApp";
 const SITE_DESCRIPTION =
-  "Conecte hábitos, projetos e agenda em uma estrutura única — com Jarvis, seu agente de IA no app e no WhatsApp. Comece grátis, sem cartão.";
+  "Agenda, tarefas, hábitos, projetos e notas no mesmo lugar — com o Jarvis, que marca, lembra e anota por você no WhatsApp. 7 dias grátis, sem cartão.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

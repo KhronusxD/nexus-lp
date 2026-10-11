@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/privacidade", destination: "https://app.nucly.com.br/privacidade", permanent: true },
       { source: "/termos", destination: "https://app.nucly.com.br/termos", permanent: true },
+      // A versão B virou a home em 11/10/2026; /b foi o endereço de teste
+      { source: "/b", destination: "/", permanent: false },
     ];
   },
   images: {

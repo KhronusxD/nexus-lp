@@ -1,5 +1,5 @@
-/* Conteúdo da versão B (nucly.com.br/b). Roteiro aprovado pelo Ed em
-   10/10/2026: "Nucly - LP versao B - roteiro.md".
+/* Conteúdo da home (nucly.com.br) — nasceu como versão B. Roteiro aprovado
+   pelo Ed em 10/10/2026: "Nucly - LP versao B - roteiro.md".
 
    Tudo aqui foi conferido no app (lib/plans, crons do WhatsApp, Jarvis).
    Antes de prometer coisa nova, confira no código — a página já prometeu o
