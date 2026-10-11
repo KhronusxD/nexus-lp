@@ -68,7 +68,7 @@ const pricingPlans = [
       "Tudo do plano Sistema",
       "Projetos e mapas mentais ilimitados",
       "Jarvis — 800 mensagens/mês",
-      "WhatsApp com áudio (transcrição) e imagem",
+      "WhatsApp com áudio (20 min/mês) e imagem",
       "Anual com 2 meses grátis",
     ],
     cta: "Desbloquear o Jarvis",

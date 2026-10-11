@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Qual a diferença entre Sistema e Nucly AI?",
     answer:
-      "Os dois já vêm com o Jarvis e o WhatsApp — a diferença é volume e escala. O Sistema (R$29,90/mês) dá pilares, habilidades e hábitos ilimitados, até 3 projetos, e o Jarvis com 300 mensagens por mês. O Nucly AI (R$49,90/mês ou R$499,90/ano) libera projetos e mapas mentais ilimitados, sobe o Jarvis pra 800 mensagens/mês e adiciona áudio e imagem no WhatsApp. Os dois recebem o resumo da semana no WhatsApp, todo domingo.",
+      "Os dois já vêm com o Jarvis e o WhatsApp — a diferença é volume e escala. O Sistema (R$29,90/mês) dá pilares, habilidades e hábitos ilimitados, até 3 projetos, e o Jarvis com 300 mensagens por mês. O Nucly AI (R$49,90/mês ou R$499,90/ano) libera projetos e mapas mentais ilimitados, sobe o Jarvis pra 800 mensagens/mês e adiciona áudio (20 min por mês) e imagem no WhatsApp. Os dois recebem o resumo da semana no WhatsApp, todo domingo.",
   },
   {
     question: "Posso cancelar a qualquer momento?",
