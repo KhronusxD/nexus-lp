@@ -56,9 +56,15 @@ function ouvirCliquesDeCadastro() {
     const a = (e.target as HTMLElement | null)?.closest?.("a");
     if (!a || !a.href.includes("/cadastro")) return;
     const plano = new URL(a.href).searchParams.get("plano") ?? "gratuito";
-    // content_category separa as versões da página no Gerenciador (B = home, A = /lp-a)
-    window.fbq?.("track", "Lead", { content_name: plano, content_category: location.pathname.startsWith("/lp-a") ? "lp-a" : "lp-b" });
+    window.fbq?.("track", "Lead", { content_name: plano, content_category: origemDaPagina(location.pathname) });
   }, true);
+}
+
+/** Separa as portas de entrada no Gerenciador: B = home, A = /lp-a, quiz-<versão> = /teste/<versão>. */
+function origemDaPagina(caminho: string) {
+  if (caminho.startsWith("/lp-a")) return "lp-a";
+  const quiz = caminho.match(/^\/teste\/([a-z-]+)/);
+  return quiz ? `quiz-${quiz[1]}` : "lp-b";
 }
 
 export function AvisoCookies() {
@@ -78,11 +84,19 @@ export function AvisoCookies() {
     if (valor === "granted") { carregarPixel(); ouvirCliquesDeCadastro(); }
   }
 
+  // Nos testes (/teste/*) o botão de avançar mora embaixo: o aviso sobe pro topo pra não cobrir.
+  const noTopo = location.pathname.startsWith("/teste");
+
   return (
     <div
       role="dialog"
       aria-label="Aviso de cookies"
-      style={{ position: "fixed", left: 0, right: 0, bottom: 0, zIndex: 60, display: "flex", justifyContent: "center", padding: "0 16px calc(16px + env(safe-area-inset-bottom))", pointerEvents: "none" }}
+      style={{
+        position: "fixed", left: 0, right: 0, zIndex: 60, display: "flex", justifyContent: "center", pointerEvents: "none",
+        ...(noTopo
+          ? { top: 0, padding: "calc(10px + env(safe-area-inset-top)) 16px 0" }
+          : { bottom: 0, padding: "0 16px calc(16px + env(safe-area-inset-bottom))" }),
+      }}
     >
       <div
         style={{ pointerEvents: "auto", width: "100%", maxWidth: 580, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, padding: 16, borderRadius: 14, background: "rgba(20,20,24,0.96)", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 18px 50px -12px rgba(0,0,0,0.7)", backdropFilter: "blur(12px)" }}
