@@ -56,7 +56,8 @@ function ouvirCliquesDeCadastro() {
     const a = (e.target as HTMLElement | null)?.closest?.("a");
     if (!a || !a.href.includes("/cadastro")) return;
     const plano = new URL(a.href).searchParams.get("plano") ?? "gratuito";
-    window.fbq?.("track", "Lead", { content_name: plano });
+    // content_category separa as versões da página no Gerenciador (A = "/", B = "/b")
+    window.fbq?.("track", "Lead", { content_name: plano, content_category: location.pathname.startsWith("/b") ? "lp-b" : "lp-a" });
   }, true);
 }
 
