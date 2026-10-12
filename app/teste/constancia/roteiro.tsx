@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Ctx, Roteiro } from "../_quiz/tipos";
 import { VisualPilha, VisualSemana, VisualWhats, VisualXp } from "../_quiz/visuais";
+import { ConversaJarvis, Galeria, Garantias, Perguntas, Planos, PrintCelular, Solucao } from "../_quiz/vendas";
 import { gravarPonte, rastrear, type Ponte } from "../_quiz/util";
 import { APP_URL, SITE_URL } from "../../config";
 import { PERFIS, ehPerfil, type PerfilId } from "./perfis";
@@ -186,9 +187,9 @@ export const ROTEIRO: Roteiro = {
       rodape: (c) => (
         <>
           <a href={CADASTRO} className="q-cta btn-primary-gradient" onClick={() => gravarPonte(ponte(c))}>
-            Montar meu Nucly <span aria-hidden>→</span>
+            Começar meus 7 dias grátis <span aria-hidden>→</span>
           </a>
-          <p className="q-nota">7 dias grátis do plano Sistema · sem cartão</p>
+          <p className="q-nota">Sem cartão · seu hábito já vai pronto</p>
         </>
       ),
     },
@@ -290,6 +291,94 @@ function tracos(c: Ctx): ReactNode[] {
   return t;
 }
 
+/* A seção "Como o Nucly resolve isso": a dor do perfil primeiro, depois o
+   que vale pra todo mundo. Cada promessa existe no app (conferido em
+   12/10/2026): XP por habilidade, semana do hábito, "Fez hoje?" às 21h,
+   resumo do dia às 7h e de domingo no WhatsApp, Entrada do Fluxo. */
+type Sol = { dor: string; titulo: string; texto: ReactNode; visual: ReactNode };
+
+const SOLUCAO_DO_PERFIL: Record<PerfilId, (c: Ctx) => Sol> = {
+  fogo: () => ({
+    dor: "A empolgação acaba, e não sobra nada segurando o hábito.",
+    titulo: "Progresso que dá pra ver",
+    texto: "Cada hábito fica ligado a uma habilidade. Fez, ganhou XP: a habilidade sobe de nível e as horas da semana vão somando. Dá vontade de não quebrar.",
+    visual: <PrintCelular tela="habilidades" alt="Habilidades com nível, XP e horas da semana" />,
+  }),
+  tudo: () => ({
+    dor: "Um dia perdido parece que apagou tudo.",
+    titulo: "O que você fez não some",
+    texto: "A sequência pode quebrar, mas o XP e o nível ficam. E cada hábito mostra a semana inteira, não só a sequência: 5 de 7 já é uma semana boa.",
+    visual: <PrintCelular tela="habitos" alt="Hábitos com a semana marcada dia a dia" />,
+  }),
+  dia: (c) => ({
+    dor: "A rotina aperta e o hábito fica pra depois.",
+    titulo: "Alguém lembra por você",
+    texto: <>Às 21h o Jarvis pergunta no seu WhatsApp se você fez. Responde <b>sim</b> e está marcado, sem abrir o app.</>,
+    visual: <VisualWhats habito={nomeHabito(c)} />,
+  }),
+  mil: () => ({
+    dor: "Muita coisa ao mesmo tempo, e no primeiro dia ruim cai tudo junto.",
+    titulo: "Um de cada vez, o resto guardado",
+    texto: "Você começa com um hábito. As outras ideias ficam na Entrada do Fluxo, esperando a vez, sem pesar na cabeça.",
+    visual: <PrintCelular tela="fluxo" alt="Fluxo com Entrada, Planejamento e o quadro de hoje" />,
+  }),
+};
+
+function solucoes(c: Ctx): Sol[] {
+  const pf = perfil(c);
+  const porMensagem: Sol = pf === "dia"
+    ? {
+        dor: "O dia passa e você nem lembra o que tinha pra fazer.",
+        titulo: "Seu dia numa tela só",
+        texto: "Agenda, o que é pra fazer e os hábitos de hoje juntos. E às 7h o resumo do dia chega no seu WhatsApp.",
+        visual: <PrintCelular tela="hoje" alt="Tela Hoje com agenda e hábitos" />,
+      }
+    : {
+        dor: "Organizar dá mais trabalho do que fazer.",
+        titulo: "Tudo por mensagem, no WhatsApp",
+        texto: "Fala com o Jarvis como fala com um amigo: ele marca na agenda, anota no Fluxo e registra o que você fez.",
+        visual: <ConversaJarvis />,
+      };
+  return [
+    SOLUCAO_DO_PERFIL[pf](c),
+    porMensagem,
+    {
+      dor: "Sem saber se está funcionando, a gente desanima.",
+      titulo: "A semana em números, todo domingo",
+      texto: "O Pulso mostra a constância dos hábitos, a energia da semana e o que ficou parado. No domingo, o resumo chega no seu WhatsApp.",
+      visual: <PrintCelular tela="pulso" alt="Pulso com a energia e a constância da semana" />,
+    },
+  ];
+}
+
+/** Telas que não apareceram nas soluções. */
+function galeria(c: Ctx) {
+  const usadas = new Set(["pulso", perfil(c) === "fogo" ? "habilidades" : perfil(c) === "tudo" ? "habitos" : perfil(c) === "mil" ? "fluxo" : "hoje"]);
+  return [
+    { tela: "hoje", titulo: "Hoje", texto: "A tela de abrir o dia: agenda, o que é pra fazer e os hábitos." },
+    { tela: "calendario", titulo: "Calendário", texto: "A semana com blocos de tempo. Sincroniza com o Google Agenda." },
+    { tela: "fluxo", titulo: "Fluxo", texto: "Da ideia solta ao quadro do dia, em post-its." },
+    { tela: "habitos", titulo: "Hábitos", texto: "A semana de cada hábito, dia a dia, com a sequência." },
+    { tela: "habilidades", titulo: "Habilidades", texto: "Nível, XP e as horas que você colocou em cada uma." },
+  ].filter((t) => !usadas.has(t.tela));
+}
+
+const LARGAR_DE_NOVO: Record<PerfilId, string> = {
+  fogo: "No seu perfil a empolgação some mesmo, e por isso o hábito começa pequeno e o progresso fica na tela.",
+  tudo: "Falhar um dia não zera nada: o XP e o nível ficam, e a semana mostra o total, não só a sequência.",
+  dia: "No seu caso o problema é esquecer, e às 21h alguém pergunta. Voltar é responder sim.",
+  mil: "Com um hábito só, fica bem mais difícil largar. Os outros esperam a vez no Fluxo.",
+};
+
+function perguntas(c: Ctx) {
+  return [
+    { p: "Preciso de cartão pra testar?", r: "Não. São 7 dias com tudo do plano liberado, sem cartão. Se não assinar, a conta volta pro Grátis sozinha, nada é cobrado e o que você montou continua lá." },
+    { p: "E se eu largar de novo?", r: `${LARGAR_DE_NOVO[perfil(c)]} Se largar, o que você fez continua contando quando voltar.` },
+    { p: "Funciona sem WhatsApp?", r: "Funciona inteiro no app. O WhatsApp é o atalho: o lembrete das 21h e anotar ou marcar por mensagem, sem abrir nada." },
+    { p: "Posso cancelar?", r: "Sim, em 2 cliques em Configurações, sem multa e sem ligação." },
+  ];
+}
+
 function Resultado({ c, refazer }: { c: Ctx; refazer: () => void }) {
   const p = PERFIS[perfil(c)];
   const it = ITENS[itemId(c)];
@@ -321,10 +410,11 @@ function Resultado({ c, refazer }: { c: Ctx; refazer: () => void }) {
         <h2>O que funciona</h2>
         <p>{p.funciona}</p>
       </div>
-      <div className="r-bloco">
-        <h2>Onde o Nucly entra</h2>
-        <p>{p.nucly}</p>
-      </div>
+
+      <h2 className="r-secao">Como o Nucly resolve isso</h2>
+      {solucoes(c).map((x) => (
+        <Solucao key={x.titulo} {...x} />
+      ))}
 
       <div className="r-semana">
         <h2>Sua primeira semana</h2>
@@ -346,6 +436,18 @@ function Resultado({ c, refazer }: { c: Ctx; refazer: () => void }) {
         <p className="r-porque">{porqueTempo}</p>
         <p className="r-porque">Ao montar seu Nucly, esse hábito já entra pronto, ligado à habilidade {it.habilidade}.</p>
       </div>
+
+      <h2 className="r-secao">E ainda tem</h2>
+      <Galeria telas={galeria(c)} />
+
+      <h2 className="r-secao">Comece hoje. Os 7 primeiros dias são por nossa conta</h2>
+      <p className="r-secao-sub">Tudo do plano liberado no teste. Escolha um:</p>
+      <Planos recomendado="sistema" porque={`Recomendado pro perfil ${p.nome}`} aoEscolher={() => gravarPonte(ponte(c))} />
+      <Garantias />
+      <p className="r-letrinha">No teste, o Jarvis responde até 100 mensagens. Assinando, são 300 por mês no Sistema e 800 no Nucly AI.</p>
+
+      <h2 className="r-secao">Perguntas</h2>
+      <Perguntas itens={perguntas(c)} />
 
       <div className="r-rodape-acoes">
         <Compartilhar id={perfil(c)} />
