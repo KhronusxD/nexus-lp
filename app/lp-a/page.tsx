@@ -30,7 +30,7 @@ const pricingPlans = [
     features: [
       "Captura rápida (⌘K, celular, atalho)",
       "Quadro de post-its do dia",
-      "Agenda integrada + Google Calendar",
+      "Agenda integrada",
       "3 pilares, 3 habilidades e 3 hábitos",
       "1 projeto com mapa mental",
       "Pulso dos últimos 7 dias",
@@ -52,6 +52,7 @@ const pricingPlans = [
       "Pulso completo: energia, constância e pilares parados",
       "Jarvis no app e no WhatsApp — 300 mensagens/mês",
       "Resumo da semana no WhatsApp, todo domingo",
+      "Sincroniza com o Google Agenda",
       "Notas, documentos e exportação (LGPD)",
     ],
     cta: "Começar com 7 dias grátis",
