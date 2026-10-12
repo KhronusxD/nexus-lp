@@ -2,10 +2,17 @@
 
 type Fbq = (...args: unknown[]) => void;
 
-/** Evento no pixel — só sai se a pessoa aceitou os cookies (o pixel só carrega aí). */
+/** Evento próprio no pixel — só sai se a pessoa aceitou os cookies (o pixel só carrega aí). */
 export function rastrear(evento: string, dados: Record<string, unknown>) {
   try {
     (window as unknown as { fbq?: Fbq }).fbq?.("trackCustom", evento, dados);
+  } catch {}
+}
+
+/** Evento padrão da Meta (Lead, etc.) — o que as campanhas otimizam. */
+export function rastrearPadrao(evento: "Lead", dados: Record<string, unknown>) {
+  try {
+    (window as unknown as { fbq?: Fbq }).fbq?.("track", evento, dados);
   } catch {}
 }
 

@@ -11,7 +11,10 @@ import { useEffect, useState } from "react";
  * conversão pra Meta (cadastro, compra) de quem aceitou.
  *
  * Eventos daqui: PageView e Lead (clique em qualquer link que leva ao
- * cadastro). Cadastro e compra são medidos no app, pelo servidor.
+ * cadastro). Nos testes (/teste/*) o Lead sai ao concluir o quiz (Motor) e o
+ * clique vira CliqueTesteGratis. Cadastro (CompleteRegistration), teste
+ * (StartTrial) e compra (Purchase, com valor) são medidos no app, pelo
+ * servidor (lib/meta-capi.ts), no mesmo pixel.
  */
 
 const PIXEL_ID = "1117873707661010";
@@ -56,7 +59,11 @@ function ouvirCliquesDeCadastro() {
     const a = (e.target as HTMLElement | null)?.closest?.("a");
     if (!a || !a.href.includes("/cadastro")) return;
     const plano = new URL(a.href).searchParams.get("plano") ?? "gratuito";
-    window.fbq?.("track", "Lead", { content_name: plano, content_category: origemDaPagina(location.pathname) });
+    const origem = origemDaPagina(location.pathname);
+    // Nos testes (/teste/*) o Lead sai ao concluir o quiz; o clique aqui é
+    // só o passo seguinte — evento próprio, pra não contar Lead duas vezes.
+    if (origem.startsWith("quiz-")) window.fbq?.("trackCustom", "CliqueTesteGratis", { content_name: plano, content_category: origem });
+    else window.fbq?.("track", "Lead", { content_name: plano, content_category: origem });
   }, true);
 }
 

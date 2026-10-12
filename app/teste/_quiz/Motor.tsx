@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Ctx, Opcao, Respostas, Roteiro, Tela } from "./tipos";
 import { Marca } from "../../_inicio/componentes/Marca";
-import { rastrear } from "./util";
+import { rastrear, rastrearPadrao } from "./util";
 import "./quiz.css";
 
 /* Lições do funil do Desafio 28 (ER MKT/Funis Estudados, seção 3D): a 1ª tela
@@ -295,7 +295,11 @@ function Resultado({ ctx, roteiro, children }: { ctx: Ctx; roteiro: Roteiro; chi
   const ctxRef = useRef(ctx);
   useEffect(() => {
     roteiro.aoVerResultado?.(ctxRef.current);
-    rastrear("QuizResultado", { quiz: `quiz-${roteiro.slug}`, ...(roteiro.dadosDoResultado?.(ctxRef.current) ?? {}) });
+    // Quiz concluído = Lead (pedido do Ed em 12/10/2026). O clique no teste
+    // grátis vira evento próprio (AvisoCookies), pra não contar Lead em dobro.
+    const dados = roteiro.dadosDoResultado?.(ctxRef.current) ?? {};
+    rastrearPadrao("Lead", { content_category: `quiz-${roteiro.slug}`, content_name: dados.perfil ?? roteiro.slug });
+    rastrear("QuizResultado", { quiz: `quiz-${roteiro.slug}`, ...dados });
   }, [roteiro]);
   return <>{children}</>;
 }
