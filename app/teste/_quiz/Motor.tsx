@@ -39,6 +39,10 @@ export function Motor({ roteiro, convite }: { roteiro: Roteiro; convite?: ReactN
     const i = roteiro.telas.findIndex((t) => t.id === atual);
     const proxima = roteiro.telas.slice(i + 1).find((t) => visivel(t, c));
     if (!proxima) return;
+    if (tela.tipo === "abertura" && !comecou.current) {
+      comecou.current = true;
+      rastrear("QuizInicio", { quiz: `quiz-${roteiro.slug}`, de: "abertura" });
+    }
     if (PERGUNTA.has(tela.tipo)) {
       if (!comecou.current) {
         comecou.current = true;
@@ -195,6 +199,22 @@ export function Motor({ roteiro, convite }: { roteiro: Roteiro; convite?: ReactN
       );
       break;
     }
+    case "abertura":
+      corpo = (
+        <>
+          {historico.length === 0 && convite}
+          <Abertura slug={roteiro.slug}>{tela.conteudo(ctx)}</Abertura>
+        </>
+      );
+      rodape = (
+        <>
+          <button type="button" className="q-cta btn-primary-gradient" onClick={() => avancar()}>
+            {tela.botao} <span aria-hidden>→</span>
+          </button>
+          {tela.nota && <p className="q-nota">{tela.nota}</p>}
+        </>
+      );
+      break;
     case "carregando":
       corpo = <Carregando titulo={tela.titulo} passos={tela.passos} aoTerminar={() => avancar()} />;
       break;
@@ -289,6 +309,17 @@ function Carregando({ titulo, passos, aoTerminar }: { titulo: string; passos: st
       </ul>
     </div>
   );
+}
+
+/** Marca no pixel quem viu a abertura — junto com o QuizInicio (clique em
+ *  começar) mede se a tela ajuda ou atrapalha. O atraso deixa o pixel carregar
+ *  primeiro (o aviso de cookies liga ele no mesmo instante). */
+function Abertura({ slug, children }: { slug: string; children: ReactNode }) {
+  useEffect(() => {
+    const t = setTimeout(() => rastrear("QuizAbertura", { quiz: `quiz-${slug}` }), 400);
+    return () => clearTimeout(t);
+  }, [slug]);
+  return <>{children}</>;
 }
 
 function Resultado({ ctx, roteiro, children }: { ctx: Ctx; roteiro: Roteiro; children: ReactNode }) {

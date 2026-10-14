@@ -39,6 +39,14 @@ export type Tela =
       visual?: (c: Ctx) => ReactNode;
       botao: (c: Ctx) => string;
     })
+  | (Base & {
+      /** Tela de entrada antes da 1ª pergunta. Não conta no progresso; o
+       *  clique no botão é o QuizInicio. */
+      tipo: "abertura";
+      conteudo: (c: Ctx) => ReactNode;
+      botao: string;
+      nota?: string;
+    })
   | (Base & { tipo: "carregando"; titulo: string; passos: string[] })
   | (Base & {
       tipo: "resultado";

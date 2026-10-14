@@ -66,6 +66,16 @@ export const ROTEIRO: Roteiro = {
   dadosDoResultado: (c) => ({ perfil: perfil(c), habito: itemId(c) }),
   telas: [
     {
+      // Tela de entrada (pedido do Ed em 14/10/2026): o mesmo gancho do
+      // anúncio, os 4 perfis como curiosidade e o que a pessoa ganha.
+      // QuizAbertura (viu) e QuizInicio (clicou) medem se ela ajuda.
+      id: "abertura",
+      tipo: "abertura",
+      conteudo: () => <AberturaConstancia />,
+      botao: "Começar o teste",
+      nota: "8 perguntas · 60 segundos · grátis, sem cadastro",
+    },
+    {
       id: "largou",
       tipo: "varias",
       titulo: () => <>O que você já <em>começou e largou</em>?</>,
@@ -195,6 +205,34 @@ export const ROTEIRO: Roteiro = {
     },
   ],
 };
+
+function AberturaConstancia() {
+  return (
+    <>
+      <p className="q-sobre">Teste de constância</p>
+      <h1 className="q-titulo q-titulo-abertura">
+        Por que você larga tudo na <em>2ª semana</em>?
+      </h1>
+      <p className="q-sub">Não é falta de força de vontade. Cada pessoa larga por um motivo, e cada motivo tem um jeito de voltar.</p>
+      <p className="q-abertura-rotulo">Qual desses é você?</p>
+      <div className="q-abertura-perfis">
+        {(Object.keys(PERFIS) as PerfilId[]).map((id) => (
+          <div key={id} className="q-perfil-mini" style={{ ["--cor" as string]: PERFIS[id].cor }}>
+            <span className="q-perfil-mini-nome">
+              <span aria-hidden>{PERFIS[id].ic}</span> {PERFIS[id].nome}
+            </span>
+            <span className="q-perfil-mini-frase">{PERFIS[id].frase}</span>
+          </div>
+        ))}
+      </div>
+      <ul className="q-abertura-lista">
+        <li><span aria-hidden>✓</span>Seu perfil e por que você larga</li>
+        <li><span aria-hidden>✓</span>O que funciona pro seu caso</li>
+        <li><span aria-hidden>✓</span>Seu primeiro hábito já montado</li>
+      </ul>
+    </>
+  );
+}
 
 function rotulosPilha(c: Ctx) {
   const meus = largou(c).map((i) => ITENS[i].curto);
