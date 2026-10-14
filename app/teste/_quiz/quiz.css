@@ -619,3 +619,12 @@ span.q-voltar { cursor: default; }
   .q-abertura-lista { margin-top: 12px; gap: 5px; }
   .q-perfil-mini-frase { display: none; }
 }
+
+/* ── Símbolos próprios (no lugar dos emojis) ── */
+.q-opcao-ic, .q-cartao-ic { display: inline-flex; align-items: center; justify-content: center; color: var(--q-verde-texto); }
+.q-convite-ic { display: inline-flex; }
+.r-perfil-ic { display: flex; }
+.r-habito-ic { color: var(--q-verde-texto); }
+.r-itens li span:first-child { display: inline-flex; justify-content: center; color: var(--q-verde-texto); padding-top: 1px; }
+.v-com-simbolo { display: inline-flex; align-items: center; gap: 4px; }
+.q-perfil-mini-nome { display: inline-flex; align-items: center; gap: 6px; }

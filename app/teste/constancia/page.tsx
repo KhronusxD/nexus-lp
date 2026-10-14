@@ -16,7 +16,7 @@ const DESCRICAO = "Descubra seu perfil de constância em 60 segundos e saia com 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const { perfil } = await searchParams;
   const p = ehPerfil(perfil) ? PERFIS[perfil] : null;
-  const titulo = p ? `Meu perfil de constância: ${p.nome} ${p.ic}` : TITULO;
+  const titulo = p ? `Meu perfil de constância: ${p.nome}` : TITULO;
   const imagem = `/teste/constancia/cartao/${p ? perfil : "geral"}/og`;
   return {
     title: titulo,

@@ -9,7 +9,7 @@ export type Respostas = Record<string, string | string[]>;
 /** O que cada tela enxerga: as respostas até aqui e o primeiro nome. */
 export type Ctx = { r: Respostas; nome: string };
 
-export type Opcao = { v: string; l: string; ic?: string };
+export type Opcao = { v: string; l: string; ic?: ReactNode };
 
 type Base = {
   id: string;

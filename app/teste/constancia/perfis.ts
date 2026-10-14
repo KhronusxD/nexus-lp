@@ -1,3 +1,5 @@
+import type { NomeSimbolo } from "../_quiz/simbolos";
+
 /* Os 4 perfis do teste de constância. Fica fora do roteiro (que é do
    navegador) porque a página e a imagem de compartilhar também usam.
    Nomes sem gênero: o teste não pergunta, e "O Arrancador" seria masculino
@@ -6,7 +8,7 @@
 export const PERFIS = {
   fogo: {
     nome: "Fogo de palha",
-    ic: "🔥",
+    simbolo: "chama",
     cor: "#FF6B35",
     frase: "Começa com tudo. Some na segunda semana.",
     porque:
@@ -18,7 +20,7 @@ export const PERFIS = {
   },
   tudo: {
     nome: "Tudo ou nada",
-    ic: "⚖️",
+    simbolo: "meio",
     cor: "#00CED1",
     frase: "Perdeu um dia? Então já era.",
     porque:
@@ -30,7 +32,7 @@ export const PERFIS = {
   },
   dia: {
     nome: "Dia corrido",
-    ic: "🌀",
+    simbolo: "despertador",
     cor: "#f59e0b",
     frase: "Você não larga. Você esquece.",
     porque:
@@ -40,7 +42,7 @@ export const PERFIS = {
   },
   mil: {
     nome: "Mil metas",
-    ic: "🧱",
+    simbolo: "camadas",
     cor: "#ec4899",
     frase: "Quer mudar tudo. Acaba não mudando nada.",
     porque:
@@ -49,7 +51,7 @@ export const PERFIS = {
     nucly:
       "No Nucly você vê a sequência e as horas de cada hábito. Dá pra saber quando ele firmou e chegou a hora do próximo.",
   },
-} as const;
+} as const satisfies Record<string, { simbolo: NomeSimbolo } & Record<string, string>>;
 
 export type PerfilId = keyof typeof PERFIS;
 

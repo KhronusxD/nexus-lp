@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Ctx, Roteiro } from "../_quiz/tipos";
 import { VisualPilha, VisualSemana, VisualWhats, VisualXp } from "../_quiz/visuais";
 import { ConversaJarvis, Galeria, Garantias, Perguntas, Planos, PrintCelular, Solucao } from "../_quiz/vendas";
+import { Simbolo } from "../_quiz/simbolos";
 import { gravarPonte, rastrear, type Ponte } from "../_quiz/util";
 import { APP_URL, SITE_URL } from "../../config";
 import { PERFIS, ehPerfil, type PerfilId } from "./perfis";
@@ -18,15 +19,17 @@ import { PERFIS, ehPerfil, type PerfilId } from "./perfis";
 export const CADASTRO = `${APP_URL}/cadastro?plano=sistema`;
 
 /* O que a pessoa largou → o hábito que o app cria. Pilares e habilidades com
-   os nomes do app (onboarding: PILLAR_PRESETS). */
+   os nomes do app (onboarding: PILLAR_PRESETS). `simbolo` é o desenho no site;
+   `noApp` é a chave do mesmo desenho no app (components/ui/Symbol.tsx), que é
+   o que vai como ícone do hábito. */
 const ITENS = {
-  exercicio: { l: "Academia ou exercício", curto: "Academia", ic: "🏋️", habilidade: "Exercício físico", pilar: "Saúde", habito: (m: number) => `Treinar ${m} min`, comTempo: true },
-  leitura: { l: "Leitura", curto: "Leitura", ic: "📖", habilidade: "Leitura", pilar: "Aprendizado", habito: (m: number) => `Ler ${m} min`, comTempo: true },
-  idioma: { l: "Idioma ou curso", curto: "Inglês", ic: "🗣️", habilidade: "Estudos", pilar: "Aprendizado", habito: (m: number) => `Estudar ${m} min`, comTempo: true },
-  dieta: { l: "Dieta", curto: "Dieta", ic: "🥗", habilidade: "Alimentação", pilar: "Saúde", habito: () => "Seguir o plano de alimentação", comTempo: false },
-  meditacao: { l: "Meditação", curto: "Meditação", ic: "🧘", habilidade: "Meditação", pilar: "Saúde", habito: (m: number) => `Meditar ${m} min`, comTempo: true },
-  acordar: { l: "Acordar cedo", curto: "Acordar cedo", ic: "⏰", habilidade: "Disciplina", pilar: "Saúde", habito: () => "Acordar no horário", comTempo: false },
-  projeto: { l: "Projeto pessoal", curto: "Projeto", ic: "🚀", habilidade: "Projeto pessoal", pilar: "Carreira", habito: (m: number) => `${m} min no meu projeto`, comTempo: true },
+  exercicio: { l: "Academia ou exercício", curto: "Academia", simbolo: "haltere", noApp: "dumbbell", habilidade: "Exercício físico", pilar: "Saúde", habito: (m: number) => `Treinar ${m} min`, comTempo: true },
+  leitura: { l: "Leitura", curto: "Leitura", simbolo: "livro", noApp: "book", habilidade: "Leitura", pilar: "Aprendizado", habito: (m: number) => `Ler ${m} min`, comTempo: true },
+  idioma: { l: "Idioma ou curso", curto: "Inglês", simbolo: "idiomas", noApp: "message", habilidade: "Estudos", pilar: "Aprendizado", habito: (m: number) => `Estudar ${m} min`, comTempo: true },
+  dieta: { l: "Dieta", curto: "Dieta", simbolo: "salada", noApp: "salad", habilidade: "Alimentação", pilar: "Saúde", habito: () => "Seguir o plano de alimentação", comTempo: false },
+  meditacao: { l: "Meditação", curto: "Meditação", simbolo: "flor", noApp: "waves", habilidade: "Meditação", pilar: "Saúde", habito: (m: number) => `Meditar ${m} min`, comTempo: true },
+  acordar: { l: "Acordar cedo", curto: "Acordar cedo", simbolo: "amanhecer", noApp: "zap", habilidade: "Disciplina", pilar: "Saúde", habito: () => "Acordar no horário", comTempo: false },
+  projeto: { l: "Projeto pessoal", curto: "Projeto", simbolo: "foguete", noApp: "rocket", habilidade: "Projeto pessoal", pilar: "Carreira", habito: (m: number) => `${m} min no meu projeto`, comTempo: true },
 } as const;
 type ItemId = keyof typeof ITENS;
 
@@ -56,7 +59,7 @@ function ponte(c: Ctx): Ponte {
     nome: c.nome,
     perfil: perfil(c),
     pilares,
-    habito: { nome: nomeHabito(c), icone: it.ic, habilidade: it.habilidade, pilar: it.pilar, minutos: it.comTempo ? minutos(c) : null },
+    habito: { nome: nomeHabito(c), icone: it.noApp, habilidade: it.habilidade, pilar: it.pilar, minutos: it.comTempo ? minutos(c) : null },
   };
 }
 
@@ -80,7 +83,7 @@ export const ROTEIRO: Roteiro = {
       tipo: "varias",
       titulo: () => <>O que você já <em>começou e largou</em>?</>,
       sub: () => "Marque tudo que vale. Ninguém está julgando.",
-      opcoes: (Object.keys(ITENS) as ItemId[]).map((v) => ({ v, l: ITENS[v].l, ic: ITENS[v].ic })),
+      opcoes: (Object.keys(ITENS) as ItemId[]).map((v) => ({ v, l: ITENS[v].l, ic: <Simbolo nome={ITENS[v].simbolo} tamanho={22} /> })),
     },
     {
       id: "nome",
@@ -149,10 +152,10 @@ export const ROTEIRO: Roteiro = {
       tipo: "unica",
       titulo: () => <>O que mais te <em>motiva</em>?</>,
       opcoes: [
-        { v: "progresso", l: "Ver meu progresso em números", ic: "📈" },
-        { v: "cobranca", l: "Alguém me cobrando", ic: "👀" },
-        { v: "recompensa", l: "Uma recompensa", ic: "🏅" },
-        { v: "identidade", l: "Sentir que estou virando quem eu quero ser", ic: "🌱" },
+        { v: "progresso", l: "Ver meu progresso em números", ic: <Simbolo nome="grafico" /> },
+        { v: "cobranca", l: "Alguém me cobrando", ic: <Simbolo nome="sino" /> },
+        { v: "recompensa", l: "Uma recompensa", ic: <Simbolo nome="trofeu" /> },
+        { v: "identidade", l: "Sentir que estou virando quem eu quero ser", ic: <Simbolo nome="broto" /> },
       ],
     },
     {
@@ -182,7 +185,7 @@ export const ROTEIRO: Roteiro = {
       quando: (c) => largou(c).length > 1,
       titulo: () => <>Qual você quer <em>retomar agora</em>?</>,
       sub: () => "Um só. Os outros esperam a vez.",
-      opcoes: (c) => largou(c).map((v) => ({ v, l: ITENS[v].l, ic: ITENS[v].ic })),
+      opcoes: (c) => largou(c).map((v) => ({ v, l: ITENS[v].l, ic: <Simbolo nome={ITENS[v].simbolo} tamanho={22} /> })),
     },
     {
       id: "carregando",
@@ -219,7 +222,7 @@ function AberturaConstancia() {
         {(Object.keys(PERFIS) as PerfilId[]).map((id) => (
           <div key={id} className="q-perfil-mini" style={{ ["--cor" as string]: PERFIS[id].cor }}>
             <span className="q-perfil-mini-nome">
-              <span aria-hidden>{PERFIS[id].ic}</span> {PERFIS[id].nome}
+              <Simbolo nome={PERFIS[id].simbolo} tamanho={16} cor={PERFIS[id].cor} /> {PERFIS[id].nome}
             </span>
             <span className="q-perfil-mini-frase">{PERFIS[id].frase}</span>
           </div>
@@ -300,8 +303,8 @@ const FALA_MOTIVA = {
   },
   recompensa: {
     titulo: "A recompensa aparece todo dia.",
-    texto: () => <p>Cada dia feito aumenta a sequência 🔥 e soma XP na habilidade. É pequeno, mas é todo dia.</p>,
-    visual: () => <VisualSemana legenda={<>7 de 7: sequência de <b>7 dias</b> 🔥</>} />,
+    texto: () => <p>Cada dia feito aumenta a sequência e soma XP na habilidade. É pequeno, mas é todo dia.</p>,
+    visual: () => <VisualSemana legenda={<>7 de 7: sequência de <b>7 dias</b></>} />,
   },
   identidade: {
     titulo: "Você não só fez hoje. Você está virando alguém.",
@@ -433,7 +436,7 @@ function Resultado({ c, refazer }: { c: Ctx; refazer: () => void }) {
       <p className="q-sobre">Seu perfil de constância</p>
       <h1 className="q-titulo">{comNome(c, "seu perfil é")}</h1>
       <div className="r-perfil" style={{ ["--cor" as string]: p.cor }}>
-        <div className="r-perfil-ic" aria-hidden>{p.ic}</div>
+        <div className="r-perfil-ic" style={{ color: p.cor }}><Simbolo nome={p.simbolo} tamanho={40} traco={1.8} /></div>
         <p className="r-perfil-nome">{p.nome}</p>
         <p className="r-perfil-frase">{p.frase}</p>
       </div>
@@ -457,7 +460,7 @@ function Resultado({ c, refazer }: { c: Ctx; refazer: () => void }) {
       <div className="r-semana">
         <h2>Sua primeira semana</h2>
         <div className="r-habito">
-          <span className="r-habito-ic" aria-hidden>{it.ic}</span>
+          <span className="r-habito-ic"><Simbolo nome={it.simbolo} tamanho={22} /></span>
           <div>
             <div className="r-habito-nome">{nomeHabito(c)}</div>
             <div className="r-habito-sub">
@@ -467,9 +470,9 @@ function Resultado({ c, refazer }: { c: Ctx; refazer: () => void }) {
           </div>
         </div>
         <ul className="r-itens">
-          <li><span aria-hidden>📅</span><span>Todo dia{it.comTempo ? `, ${m} minutos` : ""}</span></li>
-          <li><span aria-hidden>💬</span><span>Às 21h o Jarvis pergunta no WhatsApp se você fez</span></li>
-          <li><span aria-hidden>🎯</span><span>Meta: 5 de 7 dias. A regra é aparecer, não ser perfeito</span></li>
+          <li><span aria-hidden><Simbolo nome="calendario" tamanho={17} /></span><span>Todo dia{it.comTempo ? `, ${m} minutos` : ""}</span></li>
+          <li><span aria-hidden><Simbolo nome="conversa" tamanho={17} /></span><span>Às 21h o Jarvis pergunta no WhatsApp se você fez</span></li>
+          <li><span aria-hidden><Simbolo nome="alvo" tamanho={17} /></span><span>Meta: 5 de 7 dias. A regra é aparecer, não ser perfeito</span></li>
         </ul>
         <p className="r-porque">{porqueTempo}</p>
         <p className="r-porque">Ao montar seu Nucly, esse hábito já entra pronto, ligado à habilidade {it.habilidade}.</p>
@@ -502,7 +505,7 @@ function Compartilhar({ id }: { id: PerfilId }) {
   const arquivo = useRef<File | null>(null);
   const p = PERFIS[id];
   const url = `${SITE_URL}/teste/constancia?perfil=${id}`;
-  const texto = `Meu perfil de constância é ${p.nome} ${p.ic}. Descobre o seu em 60 segundos:`;
+  const texto = `Meu perfil de constância é ${p.nome}. Descobre o seu em 60 segundos:`;
 
   useEffect(() => {
     let vivo = true;

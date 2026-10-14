@@ -1,6 +1,7 @@
 "use client";
 
 import { Motor } from "../_quiz/Motor";
+import { Simbolo } from "../_quiz/simbolos";
 import { ROTEIRO } from "./roteiro";
 import { PERFIS, type PerfilId } from "./perfis";
 
@@ -14,7 +15,7 @@ export function QuizConstancia({ convite }: { convite: PerfilId | null }) {
       convite={
         p && (
           <div className="q-convite">
-            <span className="q-convite-ic" aria-hidden>{p.ic}</span>
+            <span className="q-convite-ic" style={{ color: p.cor }}><Simbolo nome={p.simbolo} tamanho={22} /></span>
             <span>
               Te mandaram o perfil <b>{p.nome}</b>. Qual é o seu?
             </span>

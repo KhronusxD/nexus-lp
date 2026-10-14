@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Simbolo } from "./simbolos";
 
 /* Um elemento animado por fala: texto sozinho não segura atenção (lição do
    Desafio 28). Tudo aqui imita o que o app faz de verdade — as mensagens do
@@ -20,7 +21,7 @@ export function VisualXp({ habilidade, nivel = 2, ganho = 25 }: { habilidade: st
       </div>
       <div className="v-linha" style={{ marginTop: 8 }}>
         <span className="v-fraco">Faltam 90 XP pro nível {nivel + 1}</span>
-        <span className="v-fraco">🔥 4 dias</span>
+        <span className="v-fraco v-com-simbolo"><Simbolo nome="chama" tamanho={13} cor="#f59e0b" /> 4 dias</span>
       </div>
     </div>
   );

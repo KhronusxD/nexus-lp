@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { PERFIS, ehPerfil } from "../../../perfis";
+import { Simbolo } from "../../../../_quiz/simbolos";
 
 /* Imagem do perfil pra compartilhar: "story" (1080x1920, vai junto no
    compartilhar do celular) e "og" (1200x630, a prévia do link). Gerada no
@@ -70,7 +71,11 @@ export async function GET(_req: Request, { params }: { params: Promise<{ perfil:
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontSize: 34 * s + (story ? 0 : 6), letterSpacing: "0.14em", color: cor, fontWeight: 800 }}>{sobre}</span>
-          {p && <span style={{ fontSize: story ? 190 : 110, marginTop: story ? 40 : 18, lineHeight: 1 }}>{p.ic}</span>}
+          {p && (
+            <div style={{ display: "flex", marginTop: story ? 40 : 18 }}>
+              <Simbolo nome={p.simbolo} tamanho={story ? 170 : 100} cor={cor} traco={1.8} />
+            </div>
+          )}
           <span
             style={{
               fontSize: p ? (story ? 150 : 96) : story ? 112 : 70,
@@ -94,7 +99,6 @@ export async function GET(_req: Request, { params }: { params: Promise<{ perfil:
     {
       width: largura,
       height: altura,
-      emoji: "twemoji",
       fonts: fontes.length ? fontes : undefined,
     },
   );
